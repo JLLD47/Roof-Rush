@@ -1,10 +1,10 @@
 // Creacion de la clase para las plataformas
 class Platforms {
     constructor(){
-        this.width = 200
-        this.height = 50
+        this.width = Math.floor(Math.random() * 700) + 200
+        this.height = Math.floor(Math.random() * 300) + 100
         this.x = 1280 - this.width
-        this.y = 550
+        this.y = 0
         this.directionX = -1 // Izquierda por default
         this.speed = 6
         this.sprite = document.createElement('div')
@@ -14,7 +14,7 @@ class Platforms {
         this.sprite.setAttribute('class', 'platform')
         this.sprite.style.width = this.width + 'px'
         this.sprite.style.height = this.height + 'px'
-        this.sprite.style.top = this.y + 'px'
+        this.sprite.style.bottom = this.y + 'px'
         this.sprite.style.left = this.x + 'px'
         playField.appendChild(this.sprite)
     }
