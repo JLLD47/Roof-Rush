@@ -1,0 +1,1 @@
+// Creacion de la clase para las plataformas
