@@ -17,4 +17,7 @@ class Platforms {
         this.sprite.style.left = this.x + 'em'
         playfield.appendChild(this.sprite)
     }
+    remove(){
+        playfield.removeChild(this.sprite)// Eliminar el div
+    }
 }
