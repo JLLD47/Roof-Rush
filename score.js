@@ -1,7 +1,7 @@
 //import player from "./player.js";
 
 
-let scoreText;
+/* let scoreText;
 let score = 0;
 let count = 0;
 let coin = 50; 
@@ -24,7 +24,7 @@ function scoreSet() {
 
 let player = true;
 scoreSet();
-
+ */
 
 
 

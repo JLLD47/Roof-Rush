@@ -20,9 +20,11 @@ function updateGame() {
 }
 
 function newPlatform() {
-  platform = new Platforms();
-  platform.insert();
-  platforms.push(platform);
+  platformInterval = setInterval(function(){
+    platform = new Platforms();
+    platform.insert();
+    platforms.push(platform);
+  }, 1000)
 }
 
 gameLoop();

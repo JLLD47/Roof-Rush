@@ -21,7 +21,7 @@ class Player {
     playfield.appendChild(this.sprite);
   }
   jump() {
-    if (!this.isJumping) {
+    if (!this.isGrounded) {
       this.isJumping = true;
       this.isGrounded = false
       this.countJump = 0;
@@ -50,11 +50,10 @@ class Player {
         platform.y + platform.height > player.y
       ) 
       {
-      console.log("colision")
-      player.y = platform.y - player.height 
-      player.isJumping = false
-      player.isGrounded = true
-      }
+        player.isGrounded = true
+        player.isJumping = false
+        player.y = platform.y - player.height
+              }
     });
   }
 }
