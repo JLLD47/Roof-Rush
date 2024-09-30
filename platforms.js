@@ -1,14 +1,14 @@
 // Creacion de la clase para las plataformas
 class Platforms {
     constructor(){
-        this.width = 50
+        this.width = 200
         this.height = 50
-        this.x = 1230
+        this.x = 1280 - this.width
         this.y = 550
         this.directionX = -1 // Izquierda por default
-        this.speed = 100
+        this.speed = 6
         this.sprite = document.createElement('div')
-        this.interval = setInterval(this.move.bind(this), 100)
+        this.interval = setInterval(this.move.bind(this), 10)
     }
     insert(){
         this.sprite.setAttribute('class', 'platform')
@@ -26,7 +26,9 @@ class Platforms {
         let newX = this.x + this.speed * this.directionX
         //this.checkCollision()
         console.log(this)
-        if(newX >= 0 && newX <= 1230 - this.width){
+        console.log(this.width)
+        if(newX >= 0 && newX <= 1280 - this.width){
+           
             this.x = newX
             this.sprite.style.left = this.x + 'px'
         }else{
