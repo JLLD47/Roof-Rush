@@ -31,3 +31,9 @@ window.addEventListener("keydown", function (e) {
     player.jump();
   }
 });
+let obstacle;
+
+
+function newObstacle(){
+    obstacle = new Obstacle();
+    obstacle.insert();}
