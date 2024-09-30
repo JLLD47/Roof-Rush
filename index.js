@@ -15,7 +15,7 @@ function newPlayer() {
 }
 
 function updateGame() {
-    player.checkCollision()
+  player.checkCollision();
   player.updatePosition();
 }
 

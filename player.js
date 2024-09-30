@@ -1,5 +1,5 @@
 class Player {
-  constructor(x, y,z) {
+  constructor(x,y) {
     this.x = x;
     this.y = y;
     this.width = 70;
@@ -9,7 +9,7 @@ class Player {
     this.jumpSpeed = 16;
     this.gravity = 4;
     this.isJumping = false;
-    this.platform = 700  ;
+    this.isGrounded = false
     this.sprite = document.createElement("div");
   }
   spawn() {
@@ -21,8 +21,9 @@ class Player {
     playfield.appendChild(this.sprite);
   }
   jump() {
-    if (!this.isJumping && this.y === this.platform) {
+    if (!this.isJumping) {
       this.isJumping = true;
+      this.isGrounded = false
       this.countJump = 0;
     }
   }
@@ -34,7 +35,7 @@ class Player {
         this.isJumping = false;
       }
     } else {
-      if (this.y < this.platform) {
+      if (!this.isGrounded) {
         this.y += this.gravity;
       }
     }
@@ -50,8 +51,9 @@ class Player {
       ) 
       {
       console.log("colision")
-      player.gravity = 0
+      player.y = platform.y - player.height 
       player.isJumping = false
+      player.isGrounded = true
       }
     });
   }
