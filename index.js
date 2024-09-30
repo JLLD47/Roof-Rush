@@ -4,19 +4,19 @@ let platform;
 let platforms = [];
 
 function gameLoop() {
+  setInterval(updateGame, 16);
   newPlayer();
   newPlatform();
-  setInterval(updateGame, 16);
 }
 
 function newPlayer() {
-  player = new Player(500, 400);
+  player = new Player(800,0);
   player.spawn();
 }
 
 function updateGame() {
-  player.checkCollision();
   player.updatePosition();
+  player.checkCollision();
 }
 
 function newPlatform() {
