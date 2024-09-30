@@ -24,7 +24,7 @@ function scoreSet() {
 
 let player = true;
 scoreSet();
-scoreSet();
-scoreSet();
+
+
 
 
