@@ -1,0 +1,43 @@
+class Player {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.width = 70;
+    this.height = 90;
+    this.countJump = 0;
+    this.maxCount = 16;
+    this.jumpSpeed = 16;
+    this.gravity = 4;
+    this.isJumping = false;
+    this.platform = y;
+    this.sprite = document.createElement("div");
+  }
+  spawn() {
+    this.sprite.setAttribute("id", "player");
+    this.sprite.style.width = this.width + "px";
+    this.sprite.style.height = this.height + "px";
+    this.sprite.style.top = this.y + "px";
+    this.sprite.style.left = this.x + "px";
+    playfield.appendChild(this.sprite);
+  }
+  jump() {
+    if (!this.isJumping && this.y === this.platform) {
+      this.isJumping = true;
+      this.countJump = 0;
+    }
+  }
+  updatePosition() {
+    if (this.isJumping) {
+      this.countJump += 1;
+      this.y -= this.jumpSpeed;
+      if (this.countJump >= this.maxCount) {
+        this.isJumping = false;
+      }
+    } else {
+      if (this.y < this.platform) {
+        this.y += this.gravity;
+      }
+    }
+    this.sprite.style.top = this.y + "px";
+  }
+}
