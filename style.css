@@ -2,10 +2,14 @@ body{
     background-color: black;
 }
 #playfield{
-    width: 80vw;
-    height: 60vh;
+    width: 1280px;
+    height: 600px;
     background-color: rgb(156, 155, 155);
     margin: 0 auto;
-    margin-top: 15vh;
+    margin-top: 150px;
     position: relative;
+}
+.coin{
+background-color: rgb(147, 168, 29);
+position: absolute;
 }
