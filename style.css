@@ -1,0 +1,11 @@
+body{
+    background-color: black;
+}
+#playfield{
+    width: 80vw;
+    height: 60vh;
+    background-color: rgb(156, 155, 155);
+    margin: 0 auto;
+    margin-top: 15vh;
+    position: relative;
+}
