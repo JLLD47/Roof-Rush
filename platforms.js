@@ -6,8 +6,9 @@ class Platforms {
         this.x = 1230
         this.y = 550
         this.directionX = -1 // Izquierda por default
-        this.speed = 1
+        this.speed = 100
         this.sprite = document.createElement('div')
+        this.interval = setInterval(this.move.bind(this), 100)
     }
     insert(){
         this.sprite.setAttribute('class', 'platform')
@@ -15,19 +16,31 @@ class Platforms {
         this.sprite.style.height = this.height + 'px'
         this.sprite.style.top = this.y + 'px'
         this.sprite.style.left = this.x + 'px'
-        playfield.appendChild(this.sprite)
+        playField.appendChild(this.sprite)
     }
     remove(){
         playfield.removeChild(this.sprite)// Eliminar el div
+        clearInterval(this.interval)
     }
     move(){
         let newX = this.x + this.speed * this.directionX
-
-        if(newX >= 0 && newX <= 600 - this.width){
+        //this.checkCollision()
+        console.log(this)
+        if(newX >= 0 && newX <= 1230 - this.width){
             this.x = newX
             this.sprite.style.left = this.x + 'px'
         }else{
             this.remove()
         }
+        
     }
+/*     checkCollision(){
+        if (this.x < player.x + player.width &&
+            this.y < player.y + player.height &&
+            this.x + this.width > player.x &&
+            this.y + this.height > player.y) {
+            this.remove()
+            }
+    } */
+
 }

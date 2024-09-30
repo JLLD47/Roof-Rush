@@ -1,4 +1,4 @@
-let playfield = document.getElementById('playfield')
+let playField = document.getElementById('playfield')
 
 
 
@@ -15,9 +15,10 @@ let playfield = document.getElementById('playfield')
 
 let platform
 
-//Enemy
+//Platform
 function newPlatform(){
     platform = new Platforms()
     platform.insert()
+
 }
 newPlatform()
