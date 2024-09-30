@@ -40,4 +40,18 @@ class Player {
     }
     this.sprite.style.top = this.y + "px";
   }
+  checkCollision() {
+    platforms.forEach(function (platform, index) {
+      if (
+        platform.x < player.x + player.width &&
+        platform.y < player.y + player.height &&
+        platform.x + platform.width > player.x &&
+        platform.y + platform.height > player.y
+      ) {
+        platform.remove();
+        platform.splice(index, 1);
+      }
+    });
+  }
 }
+
