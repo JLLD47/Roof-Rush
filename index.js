@@ -29,4 +29,3 @@ function firstPlatform(){
     firstPlatform.insert()
 }
 newPlatform()
-firstPlatform()
