@@ -1,7 +1,7 @@
 class Obstacle {
     constructor(x,y,width,height) {
         this.x = x;
-        this.y = y;
+        this.y = height- Platforms.height;
         this.width = width;
         this.height = height; 
         this.sprite = document.createElement("div");
@@ -17,4 +17,19 @@ class Obstacle {
 
 }
 
-//let obstacle = new Obstacle(100,100,50,50);
+let obstacle = new Obstacle(70,70);
+
+/*
+function gameLoop() {
+       context.clearRect(0, 0, canvas.width, canvas.height); // Limpia el canvas
+       platforms.forEach(drawPlatform);
+       obstacles.forEach(drawObstacle);
+       requestAnimationFrame(gameLoop); // Llama al siguiente frame
+   }
+
+ function drawObstacle(obstacle) {
+       context.fillStyle = 'red'; // Color del obstáculo
+       context.fillRect(obstacle.x, obstacle.y, obstacle.width, obstacle.height);
+   }
+
+*/ 
