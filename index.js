@@ -10,7 +10,7 @@ function gameLoop() {
 }
 
 function newPlayer() {
-  player = new Player(800,0);
+  player = new Player(800, 0);
   player.spawn();
 }
 
@@ -21,21 +21,24 @@ function updateGame() {
 
 function newPlatform() {
   platformInterval = setInterval(function(){
-    platform = new Platforms();
-    platform.insert();
-    platforms.push(platform);
-  }, 1000)
+    let newPlatform = new Platforms();
+
+    if (!newPlatform.overlap(platforms)) {
+      newPlatform.insert();
+      platforms.push(newPlatform);
+    }
+  }, 1000);
 }
 
 gameLoop();
-window.addEventListener("keydown", function (e) {
+window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
     player.jump();
   }
 });
 let obstacle;
 
-
-function newObstacle(){
-    obstacle = new Obstacle();
-    obstacle.insert();}
+function newObstacle() {
+  obstacle = new Obstacle();
+  obstacle.insert();
+}
