@@ -4,6 +4,7 @@ let platform;
 let platforms = [];
 let refreshRate = 16;
 let gameInterval
+let obstacles;
 
 function gameLoop() {
   newPlayer();
@@ -56,12 +57,12 @@ window.addEventListener("keypress", function (e) {
     player.jump();
   }
 });
-let obstacle;
+
 
 function newObstacle() {
   obstacle = new Obstacle();
   obstacle.insert();
-  obstacle.push(obstacle);
+  obstacles.push(obstacle);
 }
 
 function endGame() {
