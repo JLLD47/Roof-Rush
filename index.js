@@ -3,11 +3,12 @@ let player;
 let platform;
 let platforms = [];
 let refreshRate = 16;
+let gameInterval
 
 function gameLoop() {
-  setInterval(updateGame, refreshRate);
   newPlayer();
   newPlatform();
+  gameInterval = setInterval(updateGame, refreshRate);
 }
 
 function newPlayer() {
@@ -16,14 +17,20 @@ function newPlayer() {
 }
 
 function updateGame() {
-  player.updatePosition();
-  player.checkCollision();
+  if(player.y+player.height>= 600){
+    endGame()
+  }else{
+    player.updatePosition();
+    player.checkCollision();
+  }
+  
 }
+
 
 function newPlatform() {
   let firstPlat = new Platforms(50, 650);
 
-  let secondPlat = new Platforms(920, 350);
+  let secondPlat = new Platforms(920, 650);
 
   firstPlat.insert();
   secondPlat.insert();
@@ -41,6 +48,8 @@ function newPlatform() {
   }, 2000);
 }
 
+
+
 gameLoop();
 window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
@@ -54,4 +63,10 @@ function newObstacle() {
   obstacle.insert();
 }
 
-function gameOver() {}
+function endGame() {
+  
+  player.gameOver()
+  clearInterval(gameInterval)
+}
+
+
