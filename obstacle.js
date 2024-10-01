@@ -17,7 +17,7 @@ class Obstacle {
 
 }
 
-let obstacle = new Obstacle(70,70);
+let obstacle = new Obstacle(70,70,70,70);
 
 /*
 function gameLoop() {
