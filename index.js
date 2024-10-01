@@ -21,11 +21,18 @@ function updateGame() {
 }
 
 function newPlatform() {
-  let firstPlat = new Platforms(50,650)
 
-  firstPlat.insert()
+
+
+    let firstPlat = new Platforms(50, 650);
+
+    let secondPlat = new Platforms(920,350)
+    
+    firstPlat.insert()
+    secondPlat.insert();
   console.log(firstPlat.x)
   platforms.push(firstPlat)
+  platforms.push(secondPlat);
 
   platformInterval = setInterval(function(){
  
