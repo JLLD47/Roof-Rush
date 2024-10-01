@@ -19,3 +19,11 @@ body{
     background-color: aqua;
     position: absolute;
 }
+#obstacle{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: red;
+    top: 50px;
+    left: 50px;
+}

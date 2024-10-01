@@ -4,30 +4,41 @@ let platform;
 let platforms = [];
 
 function gameLoop() {
+  setInterval(updateGame, 16);
   newPlayer();
   newPlatform();
-  setInterval(updateGame, 16);
 }
 
 function newPlayer() {
-  player = new Player(500, 400);
+  player = new Player(800, 0);
   player.spawn();
 }
 
 function updateGame() {
-  player.checkCollision();
   player.updatePosition();
+  player.checkCollision();
 }
 
 function newPlatform() {
-  platform = new Platforms();
-  platform.insert();
-  platforms.push(platform);
+  platformInterval = setInterval(function(){
+    let newPlatform = new Platforms();
+
+    if (!newPlatform.overlap(platforms)) {
+      newPlatform.insert();
+      platforms.push(newPlatform);
+    }
+  }, 1000);
 }
 
 gameLoop();
-window.addEventListener("keydown", function (e) {
+window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
     player.jump();
   }
 });
+let obstacle;
+
+function newObstacle() {
+  obstacle = new Obstacle();
+  obstacle.insert();
+}
