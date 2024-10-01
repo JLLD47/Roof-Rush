@@ -2,11 +2,11 @@ class Player {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.width = 70;
-    this.height = 90;
+    this.width = 48 ;
+    this.height = 48;
     this.countJump = 0;
-    this.maxCount = 22;
-    this.jumpSpeed = 16;
+    this.maxCount = 18;
+    this.jumpSpeed = 12;
     this.gravity = 4;
     this.isJumping = false;
     this.isGrounded = false;

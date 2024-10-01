@@ -11,8 +11,10 @@ body {
 }
 
 #player{
-    background-color: brown;
-    position: absolute
+background-image: url(./resources/Biker_run.png);    
+position: absolute;
+animation: idle 1s steps(6) infinite;
+
 }
 
 .platform{
@@ -31,4 +33,15 @@ body {
 .coin {
     background-color: rgb(255, 208, 0);
     position: absolute;
+}
+
+
+@keyframes idle {
+    100%{
+        background-position: 288px 0;
+    }
+}
+
+@keyframes background {
+    
 }
