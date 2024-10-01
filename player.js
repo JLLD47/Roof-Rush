@@ -49,12 +49,13 @@ class Player {
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
+        console.log(platform.width)
         return true
       } else {
         return false;
       }
     });
-    if (collision) {
+    if (collision) {  
       player.isGrounded = true;
       player.isJumping = false;
     } else {
