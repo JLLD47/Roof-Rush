@@ -1,14 +1,31 @@
 body {
     background-color: black;
 }
-
-#playfield {
+#playfield{
     width: 1280px;
     height: 600px;
     background-color: rgb(156, 155, 155);
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 15px;
     position: relative;
+}
+
+#player{
+    background-color: brown;
+    position: absolute
+}
+
+.platform{
+    background-color: aqua;
+    position: absolute;
+}
+#obstacle{
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: red;
+    top: 50px;
+    left: 50px;
 }
 
 .coin {
