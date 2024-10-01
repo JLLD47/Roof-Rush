@@ -1,39 +1,46 @@
 // Creacion de la clase para las plataformas
 class Platforms {
-    constructor(){
-        this.width = Math.floor(Math.random() * 700) + 200
-        this.height = Math.floor(Math.random() * 150) + 100
-        this.x = 1280 - this.width
-        this.y = 0
-        this.directionX = -1 // Izquierda por default
-        this.speed = 6
-        this.sprite = document.createElement('div')
-        // this.interval = setInterval(this.move.bind(this), 10)
+  constructor(x = 1280, width =400) {
+    this.width = width;
+    this.height = 200;
+    this.x = x;
+    this.y = 600 - this.height;
+    this.directionX = -1; //
+    this.speed = 6;
+    this.sprite = document.createElement("div");
+    this.interval = setInterval(this.move.bind(this), refreshRate);
+  }
+  insert() {
+    this.sprite.setAttribute("class", "platform");
+    this.sprite.style.width = this.width + "px";
+    this.sprite.style.height = this.height + "px";
+    this.sprite.style.top = this.y + "px";
+    this.sprite.style.left = this.x + "px";
+    playField.appendChild(this.sprite);
+  }
+  remove() {
+    playField.removeChild(this.sprite);
+    clearInterval(this.interval);
+  }
+  move() {
+    let newX = this.x + this.speed * this.directionX;
+    if (newX + this.width > 0) {
+      this.x = newX;
+      this.sprite.style.left = this.x + "px";
+    } else {
+      platforms.shift();
+      this.remove();
     }
-    insert(){
-        this.sprite.setAttribute('class', 'platform')
-        this.sprite.style.width = this.width + 'px'
-        this.sprite.style.height = this.height + 'px'
-        this.sprite.style.bottom = this.y + 'px'
-        this.sprite.style.left = this.x + 'px'
-        playField.appendChild(this.sprite)
-        
-
+  }
+  overlap(platformsArray) {
+    for (let platform of platformsArray) {
+      if (
+        this.x < platform.x + platform.width &&
+        this.x + this.width > platform.x
+      ) {
+        return true;
+      }
     }
-    remove(){
-        playfield.removeChild(this.sprite)// Eliminar el div
-        clearInterval(this.interval)
-    }
-    move(){
-        let newX = this.x + this.speed * this.directionX
-         if(newX >= 0 && newX <= 1280 - this.width){
-           
-            this.x = newX
-            this.sprite.style.left = this.x + 'px'
-        }else{
-            this.remove()
-        }
-        
-    }
-
+    return false;
+  }
 }

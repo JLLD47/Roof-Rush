@@ -2,40 +2,62 @@ let playField = document.getElementById("playfield");
 let player;
 let platform;
 let platforms = [];
+let refreshRate = 16
 
 function gameLoop() {
-  newPlayer();
+  setInterval(updateGame, refreshRate);
+  newPlayer()
   newPlatform();
-  setInterval(updateGame, 16);
 }
 
 function newPlayer() {
-  player = new Player(500, 400);
+  player = new Player(300, 200);
   player.spawn();
 }
 
 function updateGame() {
-  player.checkCollision();
   player.updatePosition();
+  player.checkCollision();
 }
 
 function newPlatform() {
-  platform = new Platforms();
-  platform.insert();
-  platforms.push(platform);
+  let firstPlat = new Platforms(50,650)
+
+  firstPlat.insert()
+  console.log(firstPlat.x)
+  platforms.push(firstPlat)
+
+  platformInterval = setInterval(function(){
+ 
+   let newPlatform = new Platforms();
+    // if (!newPlatform.overlap(platforms)) {  
+      newPlatform.insert();
+      platforms.push(newPlatform);
+      console.log('insert: ' + platforms)
+    // }
+  }, 2000);
 }
 
 gameLoop();
-window.addEventListener("keydown", function (e) {
+window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
     player.jump();
   }
 });
 let obstacle;
 
+function newObstacle() {
+  obstacle = new Obstacle();
+  obstacle.insert();
+}
 
+<<<<<<< HEAD
 function newObstacle(){
     obstacle = new Obstacle();
     obstacle.insert();
 
+=======
+function gameOver(){
+  
+>>>>>>> Jaime
 }
