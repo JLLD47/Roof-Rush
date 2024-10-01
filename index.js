@@ -1,8 +1,12 @@
 let playField = document.getElementById('playfield')
+let restartView = document.getElementById('restart')
 
 
+function endGame(){
 
-
+    playField.style.display = 'none'
+    restart.style.display = 'block'
+}
 
 
 
@@ -29,3 +33,4 @@ function firstPlatform(){
     firstPlatform.insert()
 }
 newPlatform()
+

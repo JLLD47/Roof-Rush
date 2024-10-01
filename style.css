@@ -17,3 +17,25 @@ body{
     position: absolute;
     background-color: brown;
 }
+
+#restart{
+    width: 600px;
+    height: 700px;
+    background-color: rgb(18, 18, 48);
+    margin: 0 auto;
+    position: relative;
+    display: none;
+  }
+  #btn-restart {
+    width: 200px;
+    /* Ajusta el tamaño del botón */
+    padding: 15px;
+    position: absolute;
+    /* Usamos posición absoluta para centrar el botón */
+    top: 50%;
+    /* Centrado vertical */
+    left: 50%;
+    /* Centrado horizontal */
+    transform: translate(-50%, -50%);
+    /* Ajusta el botón para que esté perfectamente centrado */
+  }
