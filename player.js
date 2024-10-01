@@ -28,7 +28,6 @@ class Player {
     }
   }
   updatePosition() {
-
     if (this.isJumping) {
       this.countJump += 1;
       this.y -= this.jumpSpeed;
@@ -36,28 +35,33 @@ class Player {
         this.isJumping = false;
       }
     } else {
-      if (!this.isGrounded) { 
+      if (!this.isGrounded) {
         this.y += this.gravity;
       }
     }
     this.sprite.style.top = this.y + "px";
   }
   checkCollision() {
-
-    platforms.forEach(function (platform, index) {
+    let collision = platforms.some(function (platform, index) {
       if (
         platform.x < player.x + player.width &&
         platform.y <= player.y + player.height &&
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
-
-        player.isGrounded = true;
-        player.isJumping = false;
+        return true
       } else {
-        player.isGrounded = false
+        return false;
       }
     });
-
+    if (collision) {
+      player.isGrounded = true;
+      player.isJumping = false;
+    } else {
+      player.isGrounded = false
+    }
+  }
+  gameOver() {
+    playField.removeChild(this.sprite);
   }
 }

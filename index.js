@@ -11,7 +11,7 @@ function gameLoop() {
 }
 
 function newPlayer() {
-  player = new Player(800, 0);
+  player = new Player(300, 200);
   player.spawn();
 }
 
@@ -21,15 +21,21 @@ function updateGame() {
 }
 
 function newPlatform() {
+  let firstPlat = new Platforms(50,650)
+
+  firstPlat.insert()
+  console.log(firstPlat.x)
+  platforms.push(firstPlat)
+
   platformInterval = setInterval(function(){
  
    let newPlatform = new Platforms();
-    if (!newPlatform.overlap(platforms)) {  
+    // if (!newPlatform.overlap(platforms)) {  
       newPlatform.insert();
       platforms.push(newPlatform);
       console.log('insert: ' + platforms)
-    }
-  }, 1000);
+    // }
+  }, 2000);
 }
 
 gameLoop();
@@ -43,4 +49,8 @@ let obstacle;
 function newObstacle() {
   obstacle = new Obstacle();
   obstacle.insert();
+}
+
+function gameOver(){
+  
 }
