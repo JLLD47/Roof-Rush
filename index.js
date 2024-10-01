@@ -2,12 +2,13 @@ let playField = document.getElementById("playfield");
 let player;
 let platform;
 let platforms = [];
-let refreshRate = 16
+let refreshRate = 16;
+let gameInterval
 
 function gameLoop() {
-  setInterval(updateGame, refreshRate);
-  newPlayer()
+  newPlayer();
   newPlatform();
+  gameInterval = setInterval(updateGame, refreshRate);
 }
 
 function newPlayer() {
@@ -16,34 +17,38 @@ function newPlayer() {
 }
 
 function updateGame() {
-  player.updatePosition();
-  player.checkCollision();
+  if(player.y+player.height>= 600){
+    endGame()
+  }else{
+    player.updatePosition();
+    player.checkCollision();
+  }
+  
 }
 
+
 function newPlatform() {
+  let firstPlat = new Platforms(50, 650);
 
+  let secondPlat = new Platforms(920, 650);
 
-
-    let firstPlat = new Platforms(50, 650);
-
-    let secondPlat = new Platforms(920,350)
-    
-    firstPlat.insert()
-    secondPlat.insert();
-  console.log(firstPlat.x)
-  platforms.push(firstPlat)
+  firstPlat.insert();
+  secondPlat.insert();
+  console.log(firstPlat.x);
+  platforms.push(firstPlat);
   platforms.push(secondPlat);
 
-  platformInterval = setInterval(function(){
- 
-   let newPlatform = new Platforms();
-    // if (!newPlatform.overlap(platforms)) {  
-      newPlatform.insert();
-      platforms.push(newPlatform);
-      console.log('insert: ' + platforms)
+  platformInterval = setInterval(function () {
+    let newPlatform = new Platforms();
+    // if (!newPlatform.overlap(platforms)) {
+    newPlatform.insert();
+    platforms.push(newPlatform);
+    console.log("insert: " + platforms);
     // }
   }, 2000);
 }
+
+
 
 gameLoop();
 window.addEventListener("keypress", function (e) {
@@ -58,6 +63,10 @@ function newObstacle() {
   obstacle.insert();
 }
 
-function gameOver(){
+function endGame() {
   
+  player.gameOver()
+  clearInterval(gameInterval)
 }
+
+
