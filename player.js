@@ -28,6 +28,7 @@ class Player {
     }
   }
   updatePosition() {
+
     if (this.isJumping) {
       this.countJump += 1;
       this.y -= this.jumpSpeed;
@@ -35,33 +36,28 @@ class Player {
         this.isJumping = false;
       }
     } else {
-      if (!this.isGrounded) {
+      if (!this.isGrounded) { 
         this.y += this.gravity;
       }
     }
     this.sprite.style.top = this.y + "px";
   }
   checkCollision() {
-    let isGrounded = false;
+
     platforms.forEach(function (platform, index) {
       if (
         platform.x < player.x + player.width &&
-        platform.y < player.y + player.height &&
+        platform.y <= player.y + player.height &&
         platform.x + platform.width > player.x &&
-        platform.y + platform.height > player.y
+        platform.y + platform.height >= player.y
       ) {
-        console.log("PLATAFORMA " + platform.y)
-                console.log("PLAYER " + (player.y + player.height));
 
         player.isGrounded = true;
         player.isJumping = false;
-        player.y = platform.y - player.height;
-        isGrounded = true;
+      } else {
+        player.isGrounded = false
       }
     });
-    if (!isGrounded) {
-      player.isGrounded = false;
-      player.y += player.gravity;
-    }
+
   }
 }
