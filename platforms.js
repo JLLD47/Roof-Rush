@@ -1,14 +1,14 @@
 // Creacion de la clase para las plataformas
 class Platforms {
   constructor() {
-    this.width = Math.floor(Math.random() * 700) + 200;
-    this.height = Math.floor(Math.random() * 150) + 100;
+    this.width =1000
+    this.height = 200
     this.x = 1280 - this.width;
     this.y = 600 - this.height;
     this.directionX = -1; // Izquierda por default
     this.speed = 6;
     this.sprite = document.createElement("div");
-    this.interval = setInterval(this.move.bind(this), 16);
+    //this.interval = setInterval(this.move.bind(this), 16);
   }
   insert() {
     this.sprite.setAttribute("class", "platform");
