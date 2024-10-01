@@ -2,15 +2,16 @@ let playField = document.getElementById('playfield')
 let restartView = document.getElementById('restart')
 
 
-function endGame(){
 
+
+
+function endGame() {
+ 
     playField.style.display = 'none'
     restart.style.display = 'block'
+    player.gameOver()
+    clearInterval(gameInterval)
 }
-
-
-
-
 
 
 

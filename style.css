@@ -19,12 +19,12 @@ body{
 }
 
 #restart{
-    width: 600px;
-    height: 700px;
-    background-color: rgb(18, 18, 48);
+    width: 1280px;
+    height: 600px;
+    background-color: rgb(156, 155, 155);
     margin: 0 auto;
     position: relative;
-    display: none;
+    display: block;
   }
   #btn-restart {
     width: 200px;
