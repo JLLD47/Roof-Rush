@@ -1,7 +1,13 @@
-let coin = new Coin(100,400)
-let directionY = 1
+let playField = document.getElementById("playfield")
+let coin = new Coin(1260,290)
 let coins = []
 let checkCollisions
+let newC 
+
+
+
+
+
 
 
 console.log(coin)
@@ -14,3 +20,9 @@ function gameLoop(){
 
 
 gameLoop()
+insert()
+let coinMovementInterval = setInterval(coin, 10);
+
+
+
+coinsSpawnInterval()

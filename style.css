@@ -1,7 +1,8 @@
-body{
+body {
     background-color: black;
 }
-#playfield{
+
+#playfield {
     width: 1280px;
     height: 600px;
     background-color: rgb(156, 155, 155);
@@ -9,7 +10,8 @@ body{
     margin-top: 150px;
     position: relative;
 }
-.coin{
-background-color: rgb(147, 168, 29);
-position: absolute;
+
+.coin {
+    background-color: rgb(255, 208, 0);
+    position: absolute;
 }

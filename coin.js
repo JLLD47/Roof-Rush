@@ -6,10 +6,12 @@ class Coin {
         this.y = y
         this.x = x
         this.sprite = document.createElement('div')
-        this.direction = -1
-        this.speed = 20
+        this.direction =-1
+        this.speed = 6
         this.value = 0
-        this.interval = setInterval(this.move.bind(this), 10)
+        this.interval = setInterval(this.move.bind(this), 50)
+        this.directionX = -1
+
     }
     insert() {
         this.sprite.setAttribute('class', 'coin')
@@ -17,14 +19,14 @@ class Coin {
         this.sprite.style.height = this.height + 'px'
         this.sprite.style.top = this.y + 'px'
         this.sprite.style.left = this.x + 'px'
-        playfield.appendChild(this.sprite)
+        playField.appendChild(this.sprite)
     }
     move() {
-        let newC = this.y + this.speed * this.directionY
+        let newC = this.x + this.speed * this.directionX
         this.checkCollisions()
-        if (newC >= 0 && newC <= 700 - this.height) {
-            this.y = newC
-            this.sprite.style.top = this.y + 'px'
+        if (newC >= 0 && newC <= 1280 - this.width) {
+            this.x = newC
+            this.sprite.style.left = this.x + 'px'
         } else {
             coins.shift()
             this.remove()
@@ -32,11 +34,12 @@ class Coin {
     }
 
     checkCollisions() {
+        
         coins.forEach(function (coin, index) {
             if (coin.x < player.x + player.width &&
-                 coin.y < player.y + player.height &&
-                  coin.x + coin.width > player.x &&
-                   coin.y + coin.height > player.y) {
+                coin.y < player.y + player.height &&
+                coin.x + coin.width > player.x &&
+                coin.y + coin.height > player.y) {
                 coin.remove()
                 coins.splice(index, 1)
                 player.value += 50
@@ -44,10 +47,10 @@ class Coin {
         })
     }
 
-remove(){
-    playField.removeChild(this.sprite)
-    clearInterval(this.interval)
-}
+    remove() {
+        playField.removeChild(this.sprite)
+        clearInterval(this.interval)
+    }
 
 
 }
