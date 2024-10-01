@@ -26,6 +26,14 @@ function updateGame() {
   
 }
 
+gameLoop();
+window.addEventListener("keypress", function (e) {
+  if (e.key === " ") {
+    player.jump();
+  }
+});
+let obstacle;
+
 
 function newPlatform() {
   let firstPlat = new Platforms(50, 650);
@@ -47,26 +55,14 @@ function newPlatform() {
     // }
   }, 2000);
 }
-
-
-
-gameLoop();
-window.addEventListener("keypress", function (e) {
-  if (e.key === " ") {
-    player.jump();
-  }
-});
-let obstacle;
-
 function newObstacle() {
   obstacle = new Obstacle();
   obstacle.insert();
 }
 
 function endGame() {
-  
-  player.gameOver()
-  clearInterval(gameInterval)
+ 
+    player.gameOver()
+    clearInterval(gameInterval)
 }
-
 
