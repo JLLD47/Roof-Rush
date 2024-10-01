@@ -50,14 +50,14 @@ const plats = [
 ];
 
 
-function shuffleArray(array) {
-    for (let i = array.length - 1; i > 0; i++) {
-  return [Math.floor(Math.random() * (i + 1))];
+function plat(plats) {
+    for (let i = o; i < plats.length; i++) {
+  return plats[i]
 }
 }
+console.log(plats)[i]
 // Ejemplo de uso
-const shuffledPlats = shuffleArray(plats);
-console.log(shuffledPlats);
+
 
 
 

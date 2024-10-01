@@ -61,6 +61,7 @@ let obstacle;
 function newObstacle() {
   obstacle = new Obstacle();
   obstacle.insert();
+  obstacle.push(obstacle);
 }
 
 function endGame() {

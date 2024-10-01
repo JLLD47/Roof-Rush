@@ -18,9 +18,11 @@ body{
 .platform{
     background-color: aqua;
     position: absolute;
+    background-image:url("./background-made-from-bricks.jpg") ;
+    background-size: cover;
 }
 #obstacle{
     position: absolute;
-    background-color: red;
+    background-color: rgba(117, 65, 22, 0.508);
  
 }
