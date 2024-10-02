@@ -5,11 +5,14 @@ class Player {
     this.width = 48;
     this.height = 48;
     this.countJump = 0;
-    this.maxCount = 25;
-    this.jumpSpeed = 8;
+    this.maxCount = 20;
+    this.jumpSpeed = 10;
     this.gravity = 6;
     this.isJumping = false;
     this.isGrounded = false;
+    this.score = 0
+    this.smash = false
+    
     this.sprite = document.createElement("div");
   }
   spawn() {
@@ -49,7 +52,7 @@ class Player {
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
-        console.log(platform.width);
+        player.checkWalls()
         return true;
       } else {
         return false;
@@ -75,9 +78,12 @@ class Player {
         return false;
       }
     });
-    if (smash) {
-      //add sound
-      console.log("CHECKED");
+
+    if (smash){
+          // player.x = platform.x;
+          // player.y += player.gravity
+          playField.removeChild(this.sprite);
+
     }
   }
 
