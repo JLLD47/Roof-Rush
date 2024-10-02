@@ -32,15 +32,4 @@ class Platforms {
       this.remove();
     }
   }
-  overlap(platformsArray) {
-    for (let platform of platformsArray) {
-      if (
-        this.x < platform.x + platform.width &&
-        this.x + this.width > platform.x
-      ) {
-        return true;
-      }
-    }
-    return false;
-  }
 }

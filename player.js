@@ -5,9 +5,9 @@ class Player {
     this.width = 48 ;
     this.height = 48;
     this.countJump = 0;
-    this.maxCount = 18;
-    this.jumpSpeed = 12;
-    this.gravity = 4;
+    this.maxCount = 25;
+    this.jumpSpeed = 8;
+    this.gravity = 6;
     this.isJumping = false;
     this.isGrounded = false;
     this.sprite = document.createElement("div");
