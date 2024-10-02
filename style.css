@@ -7,7 +7,7 @@ body {
     display: flex;
     justify-content: center;
     font-family: 'Tiny5', sans-serif;
-  
+
 }
 
 #playfield {
@@ -20,7 +20,7 @@ body {
     position: relative;
     display: none;
     background-image: url(./animations/NightCity/1.png);
-    
+
 }
 
 #player {
@@ -47,8 +47,8 @@ body {
 
 .coin {
     background-image: url("./animations/NightCity/MonedaD.png");
-        position: absolute;
-        animation: coinsspin 1s steps(5) infinite ;
+    position: absolute;
+    animation: coinsspin 1s steps(5) infinite;
 }
 
 
@@ -59,9 +59,9 @@ body {
 }
 
 @keyframes coinsspin {
-        100% {
-                background-position: 80px 0;
-            }
+    100% {
+        background-position: 80px 0;
+    }
 }
 
 
@@ -87,15 +87,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 35px;
-  }
-  #btn-restart{
-/*     width: 200px;
-    padding: 15px;
-    position: absolute; 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+}
 
+#btn-restart {
     cursor: pointer;
     padding: 15px;
 }
@@ -106,7 +100,8 @@ body {
     transition: opacity 3s ease;
     pointer-events: auto;
 }
-#content{
+
+#content {
     width: 400px;
     height: 500px;
     display: flex;
@@ -115,15 +110,16 @@ body {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.541);
     border: 5px solid green;
-    
+
 }
-/* Hover wapo */
-#btn-restart:hover{  
+
+#btn-restart:hover {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transform: scale(1.1);
 }
-#content span{
+
+#content span {
     color: brown;
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
@@ -182,7 +178,8 @@ body {
         background-position: -1280px 0;
     }
 }
-#start{
+
+#start {
     width: 1280px;
     height: 600px;
     background-image: url("./animations/Start.webp");
@@ -194,7 +191,8 @@ body {
     align-items: center;
     font-size: 35px;
 }
-#btn-start:hover{  
+
+#btn-start:hover {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transform: scale(1.1);

@@ -70,6 +70,8 @@ function endGame() {
   playField.style.display = "none";
   restartView.classList.add("show");
   document.body.style.overflow = "hidden";
+  coinSound.currentTime = 0;
+  coinSound.pause()
   levelSound.pause();
   levelSound.currentTime = 0;
   deadSound.play();
