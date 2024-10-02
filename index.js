@@ -18,6 +18,7 @@ let newC
 function gameLoop() {
   newPlayer();
   newPlatform();
+  newCoin();
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -27,17 +28,16 @@ function newPlayer() {
 }
 
 function updateGame() {
-  if(player.y+player.height>= 600){
+  if (player.y + player.height >= 600) {
     endGame()
-  }else{
+  } else {
     player.updatePosition();
     player.checkCollision();
   }
-  
+
 }
 
 gameLoop();
-
 window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
     player.jump();
@@ -72,9 +72,9 @@ function newObstacle() {
 }
 
 function endGame() {
- 
-    player.gameOver()
-    clearInterval(gameInterval)
+
+  player.gameOver()
+  clearInterval(gameInterval)
 }
 
 
@@ -85,19 +85,31 @@ function endGame() {
 
 
 
-insert()
+function newCoin() {
+  coinsSpawnInterval = setInterval(function () {
+    coin = new Coin(1260, 300)
+    coin.insert()
+    coins.push(coin)
+  }, 1000)
+}
 
-let coinsSpawnInterval = gameLoop
+newCoin()
+
+
+
+coin.insert()
+
+//let coinsSpawnInterval = gameLoop
 let coinMovementInterval = setInterval(coin, 10);
 
 
 
-coinsSpawnInterval()
+//coinsSpawnInterval()
 
 
 
 buttonStart.addEventListener('click', function (event) {
   startGame()
-  playField.style.display = 'block'
+  playField.style.display = 'none'
   startView.style.display = 'none'
-  })
+})
