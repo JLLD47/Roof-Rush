@@ -40,7 +40,7 @@ function updateGame() {
   }
 }
 
-gameLoop();
+//gameLoop();
 window.addEventListener("keydown", function (e) {
   if (e.key === " ") {
     player.jump();
@@ -207,7 +207,7 @@ function newCoin() {
 //coinsSpawnInterval()
 
 buttonStart.addEventListener("click", function (event) {
-  //gameLoop()
+  gameLoop()
   playField.style.display = "block";
   startView.style.display = "none";
 });
