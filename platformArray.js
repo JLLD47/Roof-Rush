@@ -1,6 +1,6 @@
 let level1 = []
 
-let platform1 = new Platform(400,200)
+let platform1 = new Platform(800,200)
 let platform2 = new Platform(400, 200);
 
 let platform3 = new Platform(400, 200);

@@ -7,7 +7,7 @@ class Coin {
         this.x = x
         this.sprite = document.createElement('div')
         this.direction =-1
-        this.speed = 6
+        this.speed = 15
         this.value = 0
         this.interval = setInterval(this.move.bind(this), 50)
         this.directionX = -1

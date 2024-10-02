@@ -7,8 +7,8 @@ let platforms = [];
 let refreshRate = 16;
 let gameInterval
 
-let coin = new Coin(1260, 290)
-let coins = []
+
+
 let checkCollisions
 let newC
 
@@ -89,7 +89,7 @@ function newCoin() {
   coinsSpawnInterval = setInterval(function () {
     coin = new Coin(1260, 300)
     coin.insert()
-    coins.push(coin)
+    coin.push(coin)
   }, 1000)
 }
 
@@ -97,7 +97,7 @@ newCoin()
 
 
 
-coin.insert()
+
 
 //let coinsSpawnInterval = gameLoop
 let coinMovementInterval = setInterval(coin, 10);
