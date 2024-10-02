@@ -20,7 +20,7 @@ body {
 }
 
 #player {
-    background-image: url(./resources/Biker_run.png);
+    background-image: url(./animations/Biker_run.png);
     position: absolute;
     animation: idle 1s steps(6) infinite;
 
@@ -29,7 +29,7 @@ body {
 .platform {
     background-color: aqua;
     position: absolute;
-    background-image:url("./background-made-from-bricks.jpg") ;
+    background-image: url("./background-made-from-bricks.jpg");
     background-size: cover;
 }
 
@@ -69,8 +69,9 @@ body {
     pointer-events: none;
 
     overflow: hidden;
-  }
-  #btn-restart {
+}
+
+#btn-restart {
     width: 200px;
     /* Ajusta el tamaño del botón */
     padding: 15px;
@@ -83,17 +84,19 @@ body {
     transform: translate(-50%, -50%);
     /* Ajusta el botón para que esté perfectamente centrado */
 }
-#restart.show{
+
+#restart.show {
     opacity: 1;
     visibility: visible;
     transition: opacity 3s ease;
     pointer-events: auto;
 }
-  #start {
-      width: 1260px;
-      height: 600px;
-      background-color: rgb(18, 18, 48);
-      margin-top: 10;
-      position: absolute;
-      display: block;
-  }
+
+#start {
+    width: 1260px;
+    height: 600px;
+    background-color: rgb(18, 18, 48);
+    margin-top: 10;
+    position: absolute;
+    display: block;
+}

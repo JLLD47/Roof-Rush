@@ -1,25 +1,19 @@
-
 let playField = document.getElementById("playfield");
-let restartView = document.getElementById('restart');
-let buttonRestart = document.getElementById('btn-restart')
-let buttonStart = document.getElementById('btn-start');
-let startView = document.getElementById('start');
+let restartView = document.getElementById("restart");
+let buttonRestart = document.getElementById("btn-restart");
+let buttonStart = document.getElementById("btn-start");
+let startView = document.getElementById("start");
 let player;
 let platform;
 let platforms = [];
-let coins = []
+let coins = [];
 let refreshRate = 16;
-let gameInterval
-let platformInterval
-let i = 0
-let coinsSpawnInterval
+let gameInterval;
+let platformInterval;
+let i = 0;
+let coinsSpawnInterval;
 
-
-
-let checkCollisions
-
-
-
+let checkCollisions;
 
 function gameLoop() {
   newPlayer();
@@ -37,14 +31,13 @@ function newPlayer() {
 
 function updateGame() {
   if (player.y + player.height >= 600) {
-    endGame()
+    endGame();
   } else {
-    console.log(player.score)
+    console.log(player.score);
     player.updatePosition();
     player.checkCollision();
-    scoreUpdate()
+    scoreUpdate();
   }
-
 }
 
 gameLoop();
@@ -55,63 +48,57 @@ window.addEventListener("keydown", function (e) {
 });
 
 function scoreUpdate() {
-  let score = document.getElementById('score')
-  score.innerText = player.score
-  let endScore = document.getElementById('endScore')
-  endScore.innerText = player.score
+  let score = document.getElementById("score");
+  score.innerText = player.score;
+  let endScore = document.getElementById("endScore");
+  endScore.innerText = player.score;
 }
-
-
-
 
 window.addEventListener("keyup", function (e) {
   if (e.key === " ") {
-    player.countJump = 25
+    player.countJump = 25;
   }
 });
 
 let obstacle;
 
 function endGame() {
-  playField.style.display = 'none'
-  restartView.classList.add('show')
-  document.body.style.overflow = 'hidden';
+  playField.style.display = "none";
+  restartView.classList.add("show");
+  document.body.style.overflow = "hidden";
 
-  player.gameOver()
+  player.gameOver();
   platforms.forEach(function (platform) {
     platform.remove();
-  })
+  });
   platforms = [];
   clearInterval(platformInterval);
-  clearInterval(gameInterval)
-
+  clearInterval(gameInterval);
 }
 
-
-
-
 function generateLevel() {
-  platform = new Platforms(levelConfig[i].width, levelConfig[i].height, levelConfig[i].x);
-  console.log('insrrt', levelConfig[i])
+  platform = new Platforms(
+    levelConfig[i].width,
+    levelConfig[i].height,
+    levelConfig[i].x
+  );
+  console.log("insrrt", levelConfig[i]);
   platform.insert();
   platforms.push(platform);
   i++;
 }
 
 function insertFirstPlatform() {
-  let firstPlat = new Platforms(1000, 20, 150)
-  firstPlat.insert()
-  platforms.push(firstPlat)
+  let firstPlat = new Platforms(1000, 20, 150);
+  firstPlat.insert();
+  platforms.push(firstPlat);
 }
-
 
 function insertSecondPlatform() {
   let secondPlat = new Platforms(150, 50);
   secondPlat.insert();
   platforms.push(secondPlat);
 }
-
-
 
 const levelConfig = [
   { width: 200, height: 100 },
@@ -165,75 +152,62 @@ const levelConfig = [
   { width: 200, height: 130 },
 ];
 
-
-
 function insertSecondPlatform() {
   let secondPlat = new Platforms(150, 50);
   secondPlat.insert();
   platforms.push(secondPlat);
 }
 
-
-buttonRestart.addEventListener('click', function (event) {
-  clearInterval(coinsSpawnInterval)
-
+buttonRestart.addEventListener("click", function (event) {
+  clearInterval(coinsSpawnInterval);
 
   if (coins.length) {
     for (let index = 0; index < coins.length; index++) {
-      console.log(coins)
-      coins[index].remove()
+      console.log(coins);
+      coins[index].remove();
     }
   }
-  coins = []
+  coins = [];
 
-  gameLoop()
-  playField.style.display = 'block'
+  gameLoop();
+  playField.style.display = "block";
 
-  restartView.classList.remove('show')
-  document.body.style.overflow = 'auto';
-})
-
-
-
+  restartView.classList.remove("show");
+  document.body.style.overflow = "auto";
+});
 
 function newCoin() {
   coinsSpawnInterval = setInterval(function () {
-    let random = Math.floor(Math.random() * 5)
-    let altura = 0
-    if (random == 0) { altura = 400 }
-    if (random == 1) { altura = 350 }
-    if (random == 2) { altura = 300 }
-    if (random == 3) { altura = 250 }
-    if (random == 4) { altura = 200 }
+    let random = Math.floor(Math.random() * 5);
+    let altura = 0;
+    if (random == 0) {
+      altura = 400;
+    }
+    if (random == 1) {
+      altura = 350;
+    }
+    if (random == 2) {
+      altura = 300;
+    }
+    if (random == 3) {
+      altura = 250;
+    }
+    if (random == 4) {
+      altura = 200;
+    }
 
-
-
-
-
-    let coin = new Coin(1260, altura)
-    coins.push(coin)
-    coin.insert()
-  }, 500)
+    let coin = new Coin(1260, altura);
+    coins.push(coin);
+    coin.insert();
+  }, 500);
 }
-
-
-
-
-
-
 
 //let coinsSpawnInterval = gameLoop
 
-
-
-
 //coinsSpawnInterval()
 
-
-
-buttonStart.addEventListener('click', function (event) {
+buttonStart.addEventListener("click", function (event) {
   //gameLoop()
-  playField.style.display = 'block'
-  startView.style.display = 'none'
-}
-)
+  playField.style.display = "block";
+  startView.style.display = "none";
+});

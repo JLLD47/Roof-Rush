@@ -6,9 +6,8 @@ class Obstacle {
     this.height = height;
     this.sprite = document.createElement("div");
     //this.interval = setInterval(this.move.bind(this), refreshRate);
-   
   }
-  insert(){
+  insert() {
     this.sprite.setAttribute("class", "obstacle");
     this.sprite.style.width = this.width + "px";
     this.sprite.style.height = this.height + "px";
@@ -17,4 +16,3 @@ class Obstacle {
     playfield.appendChild(this.sprite);
   }
 }
-
