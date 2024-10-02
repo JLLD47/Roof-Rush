@@ -180,7 +180,7 @@ buttonRestart.addEventListener("click", function (event) {
 
 function newCoin() {
   coinsSpawnInterval = setInterval(function () {
-    let random = Math.floor(Math.random() * 3);
+    let random = Math.floor(Math.random() * 5);
     let altura = 0;
     if (random == 0) {
       altura = 400;
@@ -190,6 +190,12 @@ function newCoin() {
     }
     if (random == 2) {
       altura = 300;
+    }
+    if (random == 3) {
+      altura = 250;
+    }
+    if (random == 4) {
+      altura = 200;
     }
 
     let coin = new Coin(1260, altura);
@@ -203,7 +209,7 @@ function newCoin() {
 //coinsSpawnInterval()
 
 buttonStart.addEventListener("click", function (event) {
-  startGame();
-  playField.style.display = "none";
+  //gameLoop()
+  playField.style.display = "block";
   startView.style.display = "none";
 });

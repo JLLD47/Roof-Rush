@@ -10,9 +10,9 @@ class Player {
     this.gravity = 6;
     this.isJumping = false;
     this.isGrounded = false;
-    this.score = 0
-    this.smash = false
-    
+    this.score = 0;
+    this.smash = false;
+
     this.sprite = document.createElement("div");
   }
   spawn() {
@@ -52,7 +52,7 @@ class Player {
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
-        player.checkWalls()
+        player.checkWalls();
         return true;
       } else {
         return false;
@@ -79,10 +79,8 @@ class Player {
       }
     });
 
-    if (smash){
-endGame()
-
-
+    if (smash) {
+      endGame();
     }
   }
 
