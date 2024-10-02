@@ -33,7 +33,6 @@ body {
 .platform {
     background-color: rgb(0, 0, 0);
     position: absolute;
-    background-image:url("./background-made-from-bricks.jpg") ;
     background-size: cover;
 }
 
