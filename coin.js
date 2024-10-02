@@ -1,8 +1,8 @@
 
 class Coin {
     constructor(x, y) {
-        this.height = 20
-        this.width = 20
+        this.height = 16
+        this.width = 16
         this.y = y
         this.x = x
         this.sprite = document.createElement('div')
