@@ -74,12 +74,13 @@ window.addEventListener("keyup", function (e) {
 let obstacle;
 
 function endGame() {
-  playField.style.display = 'none'
-  restart.style.display = 'block'
+    playField.style.display = 'none'
+    restartView.classList.add('show')
+    document.body.style.overflow = 'hidden';  
+
   player.gameOver()
-  platforms.forEach(function (platform) {
-    platform.remove();
-  })
+  platforms.forEach(function(platform) {
+  platform.remove();})
   platforms = [];
   clearInterval(platformInterval);
   clearInterval(gameInterval)
@@ -186,7 +187,9 @@ buttonRestart.addEventListener('click', function (event) {
 
   gameLoop()
   playField.style.display = 'block'
-  restartView.style.display = 'none'
+
+  restartView.classList.remove('show')
+  document.body.style.overflow = 'auto';
 })
 
 
