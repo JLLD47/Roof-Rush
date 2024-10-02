@@ -80,9 +80,9 @@ class Player {
     });
 
     if (smash){
-          // player.x = platform.x;
+          // player.x = platform.x - this.width;
           // player.y += player.gravity
-          playField.removeChild(this.sprite);
+
 
     }
   }
