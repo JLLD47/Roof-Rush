@@ -16,6 +16,7 @@ body {
     margin-top: 15px;
     overflow: hidden;
     position: relative;
+    display: none;
 }
 
 #player {
@@ -88,3 +89,11 @@ body {
     transition: opacity 3s ease;
     pointer-events: auto;
 }
+  #start {
+      width: 1260px;
+      height: 600px;
+      background-color: rgb(18, 18, 48);
+      margin-top: 10;
+      position: absolute;
+      display: block;
+  }
