@@ -1,28 +1,127 @@
-body{
+body {
     background-color: black;
 }
-#playfield{
+
+#playfield {
     width: 1280px;
     height: 600px;
     background-color: rgb(156, 155, 155);
     margin: 0 auto;
     margin-top: 15px;
+    overflow: hidden;
     position: relative;
 }
 
-#player{
-    background-color: brown;
-    position: absolute
+#player {
+    background-image: url(./resources/Biker_run.png);
+    position: absolute;
+    animation: idle 1s steps(6) infinite;
+
 }
 
-.platform{
+.platform {
     background-color: aqua;
     position: absolute;
     background-image:url("./background-made-from-bricks.jpg") ;
     background-size: cover;
 }
-.obstacle{
+
+.obstacle {
     position: absolute;
-    background-color: rgba(117, 65, 22, 0.508);
- 
+    width: 10px;
+    height: 20px;
+    background-color: red;
+    top: 50px;
+    left: 50px;
+}
+
+
+@keyframes idle {
+    100% {
+        background-position: 288px 0;
+    }
+}
+
+@keyframes background {}
+
+#restart {
+    width: 1280px;
+    height: 600px;
+    background-color: rgb(156, 155, 155);
+    position: relative;
+    text-align: center;
+    display: none;
+}
+
+#btn-restart {
+    width: 200px;
+    /* Ajusta el tamaño del botón */
+    padding: 15px;
+    position: absolute;
+    /* Usamos posición absoluta para centrar el botón */
+    top: 50%;
+    /* Centrado vertical */
+    left: 50%;
+    /* Centrado horizontal */
+    transform: translate(-50%, -50%);
+    /* Ajusta el botón para que esté perfectamente centrado */
+}
+
+
+@keyframes moveBG {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: -1280px 0;
+    }
+}
+
+
+
+#bg1 {
+        width: 1280px;
+            height: 600px;
+            background-color: rgb(156, 155, 155);
+            margin: 0 auto;
+            margin-top: 15px;
+            overflow: hidden;
+            position: relative;
+
+    background-image: url(./animations/NightCity/2.png);
+    background-size: cover;
+    background-repeat: repeat-x;
+    animation: moveBG 5s linear infinite
+}
+
+
+#bg2 {
+            width: 1280px;
+                height: 600px;
+                background-color: rgb(156, 155, 155);
+                margin: 0 auto;
+                margin-top: 15px;
+                overflow: hidden;
+                position: relative;
+            
+                background-image: url(./animations/NightCity/5.png);
+                background-size: cover;
+                background-repeat: repeat-x;
+                animation: moveBG 5s linear infinite
+}
+
+#bg3 {
+            width: 1280px;
+                height: 600px;
+                background-color: rgb(156, 155, 155);
+                margin: 0 auto;
+                margin-top: 15px;
+                overflow: hidden;
+                position: relative;
+            
+                background-image: url(./animations/NightCity/5.png);
+                background-size: cover;
+                background-repeat: repeat-x;
+                animation: moveBG 5s linear infinite
 }

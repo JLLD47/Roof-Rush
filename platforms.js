@@ -1,12 +1,12 @@
 // Creacion de la clase para las plataformas
 class Platforms {
-  constructor(x = 1280, width = 400) {
+  constructor(width, height, x = 1280) {
     this.width = width;
-    this.height = 200;
+    this.height = height;
     this.x = x;
     this.y = 600 - this.height;
     this.directionX = -1; //
-    this.speed = 6;
+    this.speed = 7;
     this.sprite = document.createElement("div");
     this.interval = setInterval(this.move.bind(this), refreshRate);
   }
@@ -31,16 +31,5 @@ class Platforms {
       platforms.shift();
       this.remove();
     }
-  }
-  overlap(platformsArray) {
-    for (let platform of platformsArray) {
-      if (
-        this.x < platform.x + platform.width &&
-        this.x + this.width > platform.x
-      ) {
-        return true;
-      }
-    }
-    return false;
   }
 }
