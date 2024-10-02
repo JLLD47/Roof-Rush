@@ -1,4 +1,4 @@
-body{
+body {
     background-color: black;
     padding: 0;
     margin: 0;
@@ -7,7 +7,8 @@ body{
     display: flex;
     justify-content: center;
 }
-#playfield{
+
+#playfield {
     width: 1280px;
     height: 600px;
     background-color: rgb(156, 155, 155);
@@ -17,18 +18,21 @@ body{
     position: relative;
 }
 
-#player{
-background-image: url(./resources/Biker_run.png);    
-position: absolute;
-animation: idle 1s steps(6) infinite;
+#player {
+    background-image: url(./resources/Biker_run.png);
+    position: absolute;
+    animation: idle 1s steps(6) infinite;
 
 }
 
-.platform{
+.platform {
     background-color: aqua;
     position: absolute;
+    background-image:url("./background-made-from-bricks.jpg") ;
+    background-size: cover;
 }
-#obstacle{
+
+.obstacle {
     position: absolute;
     width: 10px;
     height: 20px;
@@ -39,15 +43,14 @@ animation: idle 1s steps(6) infinite;
 
 
 @keyframes idle {
-    100%{
+    100% {
         background-position: 288px 0;
     }
 }
 
-@keyframes background {
-    
-}
-#restart{
+@keyframes background {}
+
+#restart {
     width: 1280px;
     height: 600px;
     background-color: rgb(156, 155, 155);

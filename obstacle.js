@@ -1,16 +1,20 @@
 class Obstacle {
-    constructor() {
-        this.x = 50;
-        this.y = 50;
-        this.width = 10;
-        this.height = 20; 
-        this.sprite = document.createElement("div");    
-        this.interval = setInterval(this.sprite(), 20) 
-    }
-    insert() {
-       this.sprite.position = "absolute";
-       playfield.appendChild(this.sprite);
-       this.sprite.setAttribute("id", "obstacle");
-    }
+  constructor(x, y, width, height) {
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.sprite = document.createElement("div");
+    //this.interval = setInterval(this.move.bind(this), refreshRate);
+   
+  }
+  insert(){
+    this.sprite.setAttribute("class", "obstacle");
+    this.sprite.style.width = this.width + "px";
+    this.sprite.style.height = this.height + "px";
+    this.sprite.style.top = this.y + "px";
+    this.sprite.style.left = this.x + "px";
+    playfield.appendChild(this.sprite);
+  }
 }
 
