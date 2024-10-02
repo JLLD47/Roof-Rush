@@ -9,7 +9,7 @@ let obstacle;
 function gameLoop() {
   newPlayer();
   newPlatform();
-  newObstacle();
+  //newObstacle();
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -61,11 +61,12 @@ window.addEventListener("keypress", function (e) {
 
 
 function newObstacle() {
-  let obstacle = new Obstacle();
+  let obstacle = new Obstacle(70,70,50,50);
   obstacle.insert();
   obstacles.push(obstacle);
   
 }
+
 
 function endGame() {
   
