@@ -105,8 +105,9 @@ body {
     
 }
 #btn-restart:hover{  
-    color: white;
-    background-color: black;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
 }
 #content span{
     color: brown;
