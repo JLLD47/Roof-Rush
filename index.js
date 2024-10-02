@@ -54,6 +54,7 @@ let obstacle;
 function endGame() {
     playField.style.display = 'none'
     restartView.classList.add('show')
+    document.body.style.overflow = 'hidden';  
 
   player.gameOver()
   platforms.forEach(function(platform) {
@@ -153,7 +154,8 @@ function insertSecondPlatform() {
 buttonRestart.addEventListener('click', function(event){
     gameLoop()
     playField.style.display = 'block'
-    //restartView.style.display = 'none'
+
     restartView.classList.remove('show')
+    document.body.style.overflow = 'auto';
     
 })

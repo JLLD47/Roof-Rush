@@ -1,5 +1,11 @@
 body{
     background-color: black;
+    padding: 0;
+    margin: 0;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 #playfield{
     width: 1280px;
@@ -44,13 +50,16 @@ animation: idle 1s steps(6) infinite;
 #restart{
     width: 1280px;
     height: 600px;
-    margin: 0 auto;
     background-color: rgb(156, 155, 155);
-    position: relative;
+    position: fixed;
     text-align: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease;
+    overflow: hidden;
+    transition: opacity 3s ease visibility 0s 1s;
+    pointer-events: none;
+
+    overflow: hidden;
   }
   #btn-restart {
     width: 200px;
@@ -68,5 +77,6 @@ animation: idle 1s steps(6) infinite;
 #restart.show{
     opacity: 1;
     visibility: visible;
-    transition: opacity 1s ease;
+    transition: opacity 3s ease;
+    pointer-events: auto;
 }
