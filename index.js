@@ -7,18 +7,12 @@ let startView = document.getElementById('start');
 let player;
 let platform;
 let platforms = [];
+let coins = []
 let refreshRate = 16;
 let gameInterval
 let platformInterval
 let i = 0
-
-
-
-let checkCollisions
-let newC
-
-
-
+let obstacles = [];
 
 function gameLoop() {
   newPlayer();
@@ -40,6 +34,7 @@ function updateGame() {
   } else {
     player.updatePosition();
     player.checkCollision();
+    scoreUpdate()
   }
 
 }

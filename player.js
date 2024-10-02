@@ -2,7 +2,7 @@ class Player {
   constructor(x, y) {
     this.x = x;
     this.y = y;
-    this.width = 48 ;
+    this.width = 48;
     this.height = 48;
     this.countJump = 0;
     this.maxCount = 18;
@@ -49,18 +49,39 @@ class Player {
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
+        console.log(platform.width);
+        return true;
         return true
       } else {
         return false;
       }
     });
-    if (collision) {  
+    if (collision) {
       player.isGrounded = true;
       player.isJumping = false;
     } else {
-      player.isGrounded = false
+      player.isGrounded = false;
     }
   }
+  checkWalls() {
+    let smash = platforms.some(function (platform) {
+      if (
+        player.x + player.width >= platform.x &&
+        player.x < platform.x &&
+        player.y + player.height > platform.y &&
+        player.y < platform.y + platform.height
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    if (smash) {
+      //add sound
+      console.log("CHECKED");
+    }
+  }
+
   gameOver() {
     playField.removeChild(this.sprite);
   }

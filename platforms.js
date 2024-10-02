@@ -1,6 +1,6 @@
 // Creacion de la clase para las plataformas
 class Platforms {
-  constructor(width, height, x = 1280, ) {
+  constructor(width, height, x = 1280) {
     this.width = width;
     this.height = height;
     this.x = x;
