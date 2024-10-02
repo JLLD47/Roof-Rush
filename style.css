@@ -44,6 +44,7 @@ animation: idle 1s steps(6) infinite;
 #restart{
     width: 1280px;
     height: 600px;
+    margin: 0 auto;
     background-color: rgb(156, 155, 155);
     position: relative;
     text-align: center;
