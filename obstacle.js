@@ -5,18 +5,19 @@ class Obstacle {
     this.width = width;
     this.height = height;
     this.sprite = document.createElement("div");
-    this.interval = setInterval(this.move.bind(this), refreshRate);
-   
-  }
-  insert() {
-       this.sprite.setAttribute("id", "obstacle");
-        
+    //this.interval = setInterval(this.move.bind(this), refreshRate);
+    this.sprite.setAttribute("id", "obstacle");
+    playfield.appendChild(this.sprite);    
         this.sprite.style.width = this.width + "px";
         this.sprite.style.height = this.height + "px";
         this.sprite.style.top = this.y + "px";
         this.sprite.style.left = this.x + "px";
         this.sprite.style.backgroundColor = "red";
-        playfield.appendChild(this.sprite);
+        
+   
+  }
+  insert() {
+       
   }
   draw() {
 

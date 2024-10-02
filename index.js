@@ -61,14 +61,10 @@ window.addEventListener("keypress", function (e) {
 
 
 function newObstacle() {
-  obstacle = new Obstacle();
+  let obstacle = new Obstacle();
   obstacle.insert();
   obstacles.push(obstacle);
-  obstacleInterval = setInterval(function () {
-  let newObstacle = new Obstacle();
-  newObstacle.insert();
-  obstacle.push(newObstacle);
-}, 2000);
+  
 }
 
 function endGame() {
