@@ -12,7 +12,7 @@ let refreshRate = 16;
 let gameInterval
 let platformInterval
 let i = 0
-let coinsSpawnInterval  
+let coinsSpawnInterval
 
 
 
@@ -40,7 +40,7 @@ function updateGame() {
   if (player.y + player.height >= 600) {
     endGame()
   } else {
-    console.log(player.score )
+    console.log(player.score)
     player.updatePosition();
     player.checkCollision();
     scoreUpdate()
@@ -55,9 +55,9 @@ window.addEventListener("keydown", function (e) {
   }
 });
 
-function scoreUpdate(){
-let score = document.getElementById('score')
-score.innerText = player.score 
+function scoreUpdate() {
+  let score = document.getElementById('score')
+  score.innerText = player.score
   let endScore = document.getElementById('endScore')
   endScore.innerText = player.score
 }
@@ -74,13 +74,14 @@ window.addEventListener("keyup", function (e) {
 let obstacle;
 
 function endGame() {
-    playField.style.display = 'none'
-    restartView.classList.add('show')
-    document.body.style.overflow = 'hidden';  
+  playField.style.display = 'none'
+  restartView.classList.add('show')
+  document.body.style.overflow = 'hidden';
 
   player.gameOver()
-  platforms.forEach(function(platform) {
-  platform.remove();})
+  platforms.forEach(function (platform) {
+    platform.remove();
+  })
   platforms = [];
   clearInterval(platformInterval);
   clearInterval(gameInterval)
@@ -175,14 +176,14 @@ function insertSecondPlatform() {
 
 buttonRestart.addEventListener('click', function (event) {
   clearInterval(coinsSpawnInterval)
- 
-  
-  if (coins.length){
-    for (let index = 0; index < coins.length; index++) {  
-      console.log(coins )
+
+
+  if (coins.length) {
+    for (let index = 0; index < coins.length; index++) {
+      console.log(coins)
       coins[index].remove()
     }
-  } 
+  }
   coins = []
 
   gameLoop()
@@ -195,19 +196,25 @@ buttonRestart.addEventListener('click', function (event) {
 
 
 
-  function newCoin() {
-    coinsSpawnInterval = setInterval(function () {
-      let random = Math.floor(Math.random()*3)
-      let altura = 0
-      if (random == 0) {altura = 400}
-      if (random == 1) { altura = 350 }
-      if (random == 2) { altura = 300 }
-     
-      let coin= new Coin(1260, altura)
-      coins.push(coin)
-      coin.insert()
-    }, 500)
-  }
+function newCoin() {
+  coinsSpawnInterval = setInterval(function () {
+    let random = Math.floor(Math.random() * 5)
+    let altura = 0
+    if (random == 0) { altura = 400 }
+    if (random == 1) { altura = 350 }
+    if (random == 2) { altura = 300 }
+    if (random == 3) { altura = 250 }
+    if (random == 4) { altura = 200 }
+
+
+
+
+
+    let coin = new Coin(1260, altura)
+    coins.push(coin)
+    coin.insert()
+  }, 500)
+}
 
 
 
@@ -215,18 +222,18 @@ buttonRestart.addEventListener('click', function (event) {
 
 
 
-  //let coinsSpawnInterval = gameLoop
+//let coinsSpawnInterval = gameLoop
 
 
 
 
-  //coinsSpawnInterval()
+//coinsSpawnInterval()
 
 
 
-  buttonStart.addEventListener('click', function (event) {
-    startGame()
-    playField.style.display = 'none'
-    startView.style.display = 'none'
-  }
-  )
+buttonStart.addEventListener('click', function (event) {
+  //gameLoop()
+  playField.style.display = 'block'
+  startView.style.display = 'none'
+}
+)
