@@ -1,9 +1,19 @@
 let playField = document.getElementById("playfield");
+let buttonStart = document.getElementById('btn-start');
+let startView = document.getElementById('start');
 let player;
 let platform;
 let platforms = [];
 let refreshRate = 16;
 let gameInterval
+
+let coin = new Coin(1260, 290)
+let coins = []
+let checkCollisions
+let newC
+
+
+
 
 function gameLoop() {
   newPlayer();
@@ -27,6 +37,7 @@ function updateGame() {
 }
 
 gameLoop();
+
 window.addEventListener("keypress", function (e) {
   if (e.key === " ") {
     player.jump();
@@ -67,10 +78,6 @@ function endGame() {
 }
 
 
-let coin = new Coin(1260, 290)
-let coins = []
-let checkCollisions
-let newC
 
 
 
@@ -78,10 +85,19 @@ let newC
 
 
 
-console.log(coin)
+insert()
+
 let coinsSpawnInterval = gameLoop
 let coinMovementInterval = setInterval(coin, 10);
 
 
 
 coinsSpawnInterval()
+
+
+
+buttonStart.addEventListener('click', function (event) {
+  startGame()
+  playField.style.display = 'block'
+  startView.style.display = 'none'
+  })
