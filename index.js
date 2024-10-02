@@ -1,16 +1,19 @@
-
 let playField = document.getElementById("playfield");
-let restartView = document.getElementById('restart');
-let buttonRestart = document.getElementById('btn-restart')
+let restartView = document.getElementById("restart");
+let buttonRestart = document.getElementById("btn-restart");
 let player;
 let platform;
 let platforms = [];
 let refreshRate = 16;
-let gameInterval
+let gameInterval;
+let platformInterval;
+let i = 0;
 
 function gameLoop() {
   newPlayer();
-  newPlatform();
+  insertFirstPlatform();
+  insertSecondPlatform();
+  platformInterval = setInterval(generateLevel, 1000);
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -20,13 +23,12 @@ function newPlayer() {
 }
 
 function updateGame() {
-  if(player.y+player.height>= 600){
-    endGame()
-  }else{
+  if (player.y + player.height >= 600) {
+    endGame();
+  } else {
     player.updatePosition();
     player.checkCollision();
   }
-  
 }
 
 gameLoop();
@@ -35,50 +37,50 @@ window.addEventListener("keydown", function (e) {
     player.jump();
   }
 });
+
+window.addEventListener("keyup", function (e) {
+  if (e.key === " ") {
+    player.countJump = 25;
+  }
+});
+
 let obstacle;
 
-function newObstacle() {
-  obstacle = new Obstacle();
-  obstacle.insert();
-}
-
 function endGame() {
-    playField.style.display = 'none'
-    restart.style.display = 'block'
-  player.gameOver()
-  platforms.forEach(function(platform) {
-  platform.remove();})
+  playField.style.display = "none";
+  restart.style.display = "block";
+  player.gameOver();
+  platforms.forEach(function (platform) {
+    platform.remove();
+  });
   platforms = [];
   clearInterval(platformInterval);
-  clearInterval(gameInterval)
-
+  clearInterval(gameInterval);
 }
-
-
-
 
 function generateLevel() {
-  platform = new Platforms(levelConfig[i].width, levelConfig[i].height, levelConfig[i].x);
-  console.log('insrrt', levelConfig[i])
-    platform.insert();
-    platforms.push(platform);
-    i++;
+  platform = new Platforms(
+    levelConfig[i].width,
+    levelConfig[i].height,
+    levelConfig[i].x
+  );
+  console.log("insrrt", levelConfig[i]);
+  platform.insert();
+  platforms.push(platform);
+  i++;
 }
 
-function insertFirstPlatform(){
-  let firstPlat = new Platforms(1000,20,150)
-  firstPlat.insert()
-  platforms.push(firstPlat)
+function insertFirstPlatform() {
+  let firstPlat = new Platforms(1000, 20, 150);
+  firstPlat.insert();
+  platforms.push(firstPlat);
 }
-
 
 function insertSecondPlatform() {
   let secondPlat = new Platforms(150, 50);
   secondPlat.insert();
   platforms.push(secondPlat);
 }
- 
-
 
 const levelConfig = [
   { width: 200, height: 100 },
@@ -132,17 +134,14 @@ const levelConfig = [
   { width: 200, height: 130 },
 ];
 
-
-
 function insertSecondPlatform() {
   let secondPlat = new Platforms(150, 50);
   secondPlat.insert();
   platforms.push(secondPlat);
 }
- 
 
-buttonRestart.addEventListener('click', function(event){
-    gameLoop()
-    playField.style.display = 'block'
-    restartView.style.display = 'none'
-})
+buttonRestart.addEventListener("click", function (event) {
+  gameLoop();
+  playField.style.display = "block";
+  restartView.style.display = "none";
+});

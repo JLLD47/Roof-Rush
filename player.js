@@ -63,7 +63,7 @@ class Player {
     }
   }
   checkWalls() {
-    let smash = platforms.some(function(platform){
+    let smash = platforms.some(function (platform) {
       if (
         player.x + player.width >= platform.x &&
         player.x < platform.x &&
@@ -72,12 +72,12 @@ class Player {
       ) {
         return true;
       } else {
-        return false
+        return false;
       }
-    })
-    if (smash) { 
+    });
+    if (smash) {
       //add sound
-       (console.log("CHECKED"))
+      console.log("CHECKED");
     }
   }
 
