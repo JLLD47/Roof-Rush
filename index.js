@@ -16,12 +16,13 @@ let coinsSpawnInterval;
 let checkCollisions;
 
 function gameLoop() {
+  i = 0
   newPlayer();
   insertFirstPlatform();
   insertSecondPlatform();
+  newCoin();
   platformInterval = setInterval(generateLevel, 1000);
   gameInterval = setInterval(updateGame, refreshRate);
-  newCoin();
 }
 
 function newPlayer() {
@@ -40,7 +41,6 @@ function updateGame() {
   }
 }
 
-//gameLoop();
 window.addEventListener("keydown", function (e) {
   if (e.key === " ") {
     player.jump();
@@ -72,6 +72,7 @@ function endGame() {
     platform.remove();
   });
   platforms = [];
+  console.log(levelConfig);
   clearInterval(platformInterval);
   clearInterval(gameInterval);
 }
