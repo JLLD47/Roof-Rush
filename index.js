@@ -4,11 +4,12 @@ let platform;
 let platforms = [];
 let refreshRate = 16;
 let gameInterval
-let obstacles;
+let obstacle;
 
 function gameLoop() {
   newPlayer();
   newPlatform();
+  newObstacle();
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -63,6 +64,11 @@ function newObstacle() {
   obstacle = new Obstacle();
   obstacle.insert();
   obstacles.push(obstacle);
+  obstacleInterval = setInterval(function () {
+  let newObstacle = new Obstacle();
+  newObstacle.insert();
+  obstacle.push(newObstacle);
+}, 2000);
 }
 
 function endGame() {
