@@ -12,11 +12,15 @@ let gameInterval;
 let platformInterval;
 let i = 0;
 let coinsSpawnInterval;
+const deadSound = new Audio("./sounds/fall.wav");
+const levelSound = new Audio("./sounds/level.wav");
 
 let checkCollisions;
 
 function gameLoop() {
-  i = 0
+  i = 0;
+  levelSound.loop = true
+  levelSound.play();
   newPlayer();
   insertFirstPlatform();
   insertSecondPlatform();
@@ -66,7 +70,9 @@ function endGame() {
   playField.style.display = "none";
   restartView.classList.add("show");
   document.body.style.overflow = "hidden";
-
+  levelSound.pause();
+  levelSound.currentTime = 0;
+  deadSound.play();
   player.gameOver();
   platforms.forEach(function (platform) {
     platform.remove();
@@ -208,7 +214,7 @@ function newCoin() {
 //coinsSpawnInterval()
 
 buttonStart.addEventListener("click", function (event) {
-  gameLoop()
+  gameLoop();
   playField.style.display = "block";
   startView.style.display = "none";
 });
