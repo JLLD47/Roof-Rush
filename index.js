@@ -48,11 +48,27 @@ window.addEventListener("keyup", function (e) {
 
 
 function newObstacle() {
-  let obstacle = new Obstacle();
+  let obstacle = new Obstacle(300, 50, 20, 20);
   obstacle.insert();
   obstacles.push(obstacle);
   
 }
+
+// const newObstacles = [
+//   {width: 20, height: 50},
+//   {width:50, height: 20},
+// ]
+// function generateNewObstacle() {
+//   let obstacle = new Obstacle(
+//     newObstacles[i].width,
+//     newObstacles[i].height,
+//     newObstacles[i].x
+//   );
+//   obstacle.insert();
+//   obstacles.push(obstacle);
+//   i++;
+// }
+
 
 function endGame() {
   playField.style.display = "none";
