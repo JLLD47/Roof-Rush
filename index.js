@@ -55,7 +55,12 @@ function endGame() {
     playField.style.display = 'none'
     restart.style.display = 'block'
   player.gameOver()
+  platforms.forEach(function(platform) {
+  platform.remove();})
+  platforms = [];
+  clearInterval(platformInterval);
   clearInterval(gameInterval)
+
 }
 
 
@@ -143,9 +148,6 @@ function insertSecondPlatform() {
   platforms.push(secondPlat);
 }
  
-
-
-c
 
 buttonRestart.addEventListener('click', function(event){
     gameLoop()
