@@ -70,7 +70,7 @@ class Player {
       if (
         player.x + player.width >= platform.x &&
         player.x < platform.x &&
-        player.y + player.height > platform.y &&
+        player.y + player.height > platform.y +5 &&
         player.y < platform.y + platform.height
       ) {
         return true;
