@@ -5,9 +5,9 @@ class Player {
     this.width = 48 ;
     this.height = 48;
     this.countJump = 0;
-    this.maxCount = 25;
-    this.jumpSpeed = 8;
-    this.gravity = 6;
+    this.maxCount = 18;
+    this.jumpSpeed = 18;
+    this.gravity = 2;
     this.isJumping = false;
     this.isGrounded = false;
     this.sprite = document.createElement("div");
@@ -49,7 +49,6 @@ class Player {
         platform.x + platform.width > player.x &&
         platform.y + platform.height >= player.y
       ) {
-        console.log(platform.width)
         return true
       } else {
         return false;
