@@ -53,7 +53,8 @@ let obstacle;
 
 function endGame() {
     playField.style.display = 'none'
-    restart.style.display = 'block'
+    restartView.classList.add('show')
+
   player.gameOver()
   platforms.forEach(function(platform) {
   platform.remove();})
@@ -152,5 +153,7 @@ function insertSecondPlatform() {
 buttonRestart.addEventListener('click', function(event){
     gameLoop()
     playField.style.display = 'block'
-    restartView.style.display = 'none'
+    //restartView.style.display = 'none'
+    restartView.classList.remove('show')
+    
 })
