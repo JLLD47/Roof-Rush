@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rooftop Rush</title>
+    <script src="coin.js" defer></script>
     <script src="obstacle.js" defer></script>
     <script src="player.js" defer></script>
     <script src="platforms.js" defer></script>
@@ -11,23 +12,26 @@
     <script src="index.js" defer></script>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+<body>
     <div id="playfield">
-      <div id="bg1"></div>
-      <div id="bg2"></div>
-      <div id="bg3"></div>
-      <h1 id="score">Score</h1>
+        <div id="bg1"></div>
+        <div id="bg2"></div>
+        <div id="bg3"></div>
+        <h1>Score <span id="score">0</span></h1>
+
+
     </div>
 
-<div id="start">
-    <button id="btn-start">Start Game</button>
-</div>
+    <div id="start">
+        <button id="btn-start">Start Game</button>
+    </div>
 
     <div id="restart">
-      <h1>Game Over</h1>
-      <h3>Score</h3>
-      <p>0</p>
-      <button id="btn-restart">Restart Game</button>
+        <h1>Game Over</h1>
+        <h3>Score</h3>
+        <p id="endScore">0</p>
+        <button id="btn-restart">Restart Game</button>
     </div>
-  </body>
+</body>
+
 </html>

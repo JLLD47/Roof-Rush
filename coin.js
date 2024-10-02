@@ -6,9 +6,8 @@ class Coin {
         this.y = y
         this.x = x
         this.sprite = document.createElement('div')
-        this.direction =-1
+        this.direction = -1
         this.speed = 15
-        this.value = 0
         this.interval = setInterval(this.move.bind(this), 50)
         this.directionX = -1
 
@@ -34,7 +33,7 @@ class Coin {
     }
 
     checkCollisions() {
-        
+
         coins.forEach(function (coin, index) {
             if (coin.x < player.x + player.width &&
                 coin.y < player.y + player.height &&
@@ -42,7 +41,8 @@ class Coin {
                 coin.y + coin.height > player.y) {
                 coin.remove()
                 coins.splice(index, 1)
-                player.value += 50
+                player.score += 50
+                console.log(player)
             }
         })
     }
