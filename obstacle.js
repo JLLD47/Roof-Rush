@@ -17,4 +17,4 @@ class Obstacle {
     playfield.appendChild(this.sprite);
   }
 }
-export default Obstacle;
+
