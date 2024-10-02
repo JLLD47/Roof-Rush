@@ -21,6 +21,8 @@ animation: idle 1s steps(6) infinite;
 .platform{
     background-color: aqua;
     position: absolute;
+    background-image:url("./background-made-from-bricks.jpg") ;
+    background-size: cover;
 }
 #obstacle{
     position: absolute;
@@ -29,36 +31,4 @@ animation: idle 1s steps(6) infinite;
     background-color: red;
     top: 50px;
     left: 50px;
-}
-
-
-@keyframes idle {
-    100%{
-        background-position: 288px 0;
-    }
-}
-
-@keyframes background {
-    
-}
-#restart{
-    width: 1280px;
-    height: 600px;
-    background-color: rgb(156, 155, 155);
-    position: relative;
-    text-align: center;
-    display: none;
-  }
-  #btn-restart {
-    width: 200px;
-    /* Ajusta el tamaño del botón */
-    padding: 15px;
-    position: absolute;
-    /* Usamos posición absoluta para centrar el botón */
-    top: 50%;
-    /* Centrado vertical */
-    left: 50%;
-    /* Centrado horizontal */
-    transform: translate(-50%, -50%);
-    /* Ajusta el botón para que esté perfectamente centrado */
 }

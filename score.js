@@ -22,9 +22,10 @@
 //   scoreText.innerHTML = `Score: ${score}`;
 // }
 
-// let player = true;
-// scoreSet();
-
+let player = true;
+scoreSet();
+scoreSet();
+scoreSet();
 
 
 

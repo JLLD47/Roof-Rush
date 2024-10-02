@@ -7,14 +7,10 @@ let platform;
 let platforms = [];
 let refreshRate = 16;
 let gameInterval
-let platformInterval
-let i = 0
 
 function gameLoop() {
   newPlayer();
-  insertFirstPlatform();
-  insertSecondPlatform();
-  platformInterval = setInterval(generateLevel, 1000);
+  newPlatform();
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -39,17 +35,12 @@ window.addEventListener("keydown", function (e) {
     player.jump();
   }
 });
-
-
-
-
-window.addEventListener("keyup", function (e) {
-  if (e.key === " ") {
-    player.countJump = 25
-  }
-});
-
 let obstacle;
+
+function newObstacle() {
+  obstacle = new Obstacle();
+  obstacle.insert();
+}
 
 function endGame() {
     playField.style.display = 'none'
