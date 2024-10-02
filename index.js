@@ -1,5 +1,7 @@
 
 let playField = document.getElementById("playfield");
+let restartView = document.getElementById('restart');
+let buttonRestart = document.getElementById('btn-restart')
 let player;
 let platform;
 let platforms = [];
@@ -50,10 +52,10 @@ window.addEventListener("keyup", function (e) {
 let obstacle;
 
 function endGame() {
- 
-    player.gameOver()
-    clearInterval(gameInterval)
-    ;
+    playField.style.display = 'none'
+    restart.style.display = 'block'
+  player.gameOver()
+  clearInterval(gameInterval)
 }
 
 
@@ -133,3 +135,20 @@ const levelConfig = [
   { width: 620, height: 170 },
   { width: 630, height: 130 },
 ];
+
+
+function insertSecondPlatform() {
+  let secondPlat = new Platforms(150, 50);
+  secondPlat.insert();
+  platforms.push(secondPlat);
+}
+ 
+
+
+c
+
+buttonRestart.addEventListener('click', function(event){
+    gameLoop()
+    playField.style.display = 'block'
+    restartView.style.display = 'none'
+})
