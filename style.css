@@ -117,3 +117,21 @@ body {
     -webkit-text-stroke-width: 3px;
     -webkit-text-stroke-color: black;
 }
+#start{
+    width: 1280px;
+    height: 600px;
+    /* background-color: rgb(156, 155, 155); */
+    background-image: url(Start.webp);
+    background-size: cover;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+#btn-start:hover{  
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
