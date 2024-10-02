@@ -104,6 +104,7 @@ body {
     border: 5px solid green;
     
 }
+/* Hover wapo */
 #btn-restart:hover{  
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
