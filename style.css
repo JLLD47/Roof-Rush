@@ -11,11 +11,13 @@ body {
 #playfield {
     width: 1280px;
     height: 600px;
-    background-color: rgb(156, 155, 155);
+    background-color: rgb(133, 133, 133);
     margin: 0 auto;
     margin-top: 15px;
     overflow: hidden;
     position: relative;
+    background-image: url(./animations/NightCity/1.png);
+    
 }
 
 #player {
@@ -26,10 +28,9 @@ body {
 }
 
 .platform {
-    background-color: aqua;
+    background-color: rgb(0, 0, 0);
     position: absolute;
-    background-image:url("./background-made-from-bricks.jpg") ;
-    background-size: cover;
+
 }
 
 .obstacle {
@@ -53,7 +54,7 @@ body {
     }
 }
 
-@keyframes background {}
+
 
 #restart {
     width: 1280px;
@@ -68,8 +69,9 @@ body {
     pointer-events: none;
 
     overflow: hidden;
-  }
-  #btn-restart {
+}
+
+#btn-restart {
     width: 200px;
     /* Ajusta el tamaño del botón */
     padding: 15px;
@@ -82,9 +84,64 @@ body {
     transform: translate(-50%, -50%);
     /* Ajusta el botón para que esté perfectamente centrado */
 }
-#restart.show{
+
+#restart.show {
     opacity: 1;
     visibility: visible;
     transition: opacity 3s ease;
     pointer-events: auto;
+}
+
+#bg1 {
+    width: 1280px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 15px;
+
+    position: absolute;
+    background-image: url(./animations/NightCity/2.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: scrollBG1 15s linear infinite;
+
+}
+
+#bg2 {
+    width: 1280px;
+    height: 550px;
+    margin: 0 auto;
+    margin-top: 15px;
+
+    position: absolute;
+    background-image: url(./animations/NightCity/3.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: scrollBG1 10s linear infinite;
+
+}
+
+#bg3 {
+    width: 1280px;
+    height: 600px;
+    margin: 0 auto;
+    margin-top: 15px;
+
+    position: absolute;
+    background-image: url(./animations/NightCity/5.png);
+    background-repeat: repeat-x;
+    background-size: cover;
+    animation: scrollBG1 5s linear infinite;
+
+}
+
+
+
+@keyframes scrollBG1 {
+    0% {
+        background-position: 0 556;
+    }
+
+    100% {
+        background-position: -1280px 0;
+    }
 }
