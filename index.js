@@ -48,7 +48,7 @@ window.addEventListener("keyup", function (e) {
 
 
 function newObstacle() {
-  let obstacle = new Obstacle(300, 50, 20, 20);
+  let obstacle = new Obstacle(1200, 500, 20, 20);
   obstacle.insert();
   obstacles.push(obstacle);
   
