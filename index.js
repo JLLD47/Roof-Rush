@@ -12,14 +12,16 @@ let gameInterval;
 let platformInterval;
 let i = 0;
 let coinsSpawnInterval;
+let scoreInterval
 let increment = 1000;
 const deadSound = new Audio("./sounds/fall.wav");
 const levelSound = new Audio("./sounds/Blade - Vampire Dance Club Theme.mp3");
-const menuSound = new Audio("./sounds/60s-flower-people-dutch-tulips-carpet-in-xxx-amsterdam-21252.mp3");
+const menuSound = new Audio(  "./sounds/menu.mp3"
+);
 let crazySpeed = true;
 let stopPlease;
-
 let checkCollisions;
+
 function gameLoop() {
   stopSound();
   console.log("Game loop");
@@ -27,10 +29,12 @@ function gameLoop() {
   levelSound.loop = true;
   levelSound.play();
   newPlayer();
+  
   insertFirstPlatform();
   insertSecondPlatform();
   newCoin();
   speedIncrement();
+  scoreInterval = setInterval(sumScore, 1000);
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -115,12 +119,11 @@ function newCoin() {
     if (random == 2) {
       altura = 300;
     }
-    // platforms = [];
     if (random == 3) {
       altura = 250;
     }
     if (random == 4) {
-      altura = 200;
+      altura = 375;
     }
 
     let coin = new Coin(1260, altura);
@@ -147,7 +150,6 @@ buttonRestart.addEventListener("click", function (event) {
   cleanArrays();
   stopIncrement();
   gameLoop();
-  //window.location.reload();
   playField.style.display = "block";
 
   restartView.classList.remove("show");
@@ -171,10 +173,7 @@ const levelConfig = [
 ];
 
 function speedIncrement() {
-  console.log("Speed Increment");
-  console.log(crazySpeed);
   generateLevel();
-  console.log("Plataformas", platforms);
   if (crazySpeed) {
     platformInterval = setInterval(generateLevel, increment);
 
@@ -200,6 +199,7 @@ function cleanAllIntervals() {
   clearInterval(coinsSpawnInterval);
   clearInterval(platformInterval);
   clearInterval(gameInterval);
+  clearInterval(scoreInterval);
 }
 
 function cleanArrays() {
@@ -223,7 +223,12 @@ function stopSound() {
   levelSound.currentTime = 0;
   deadSound.play();
   menuSound.pause();
+  levelSound.playbackRate = 1
 }
 
+
+function sumScore () {
+player.score += 20;
+}
 
 menuSound.play();
