@@ -23,8 +23,15 @@ body {
 
 }
 
-#player {
+.player {
     background-image: url(./animations/Biker_run.png);
+    position: absolute;
+    animation: idle 1s steps(6) infinite;
+
+}
+
+.playerJump {
+    background-image: url(./animations/Biker_jump.png);
     position: absolute;
     animation: idle 1s steps(6) infinite;
 

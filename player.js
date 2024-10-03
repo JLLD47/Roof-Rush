@@ -16,7 +16,7 @@ class Player {
     this.sprite = document.createElement("div");
   }
   spawn() {
-    this.sprite.setAttribute("id", "player");
+    this.sprite.setAttribute("class", "player");
     this.sprite.style.width = this.width + "px";
     this.sprite.style.height = this.height + "px";
     this.sprite.style.top = this.y + "px";
@@ -28,10 +28,12 @@ class Player {
       this.isJumping = true;
       this.isGrounded = false;
       this.countJump = 0;
+      
     }
   }
   updatePosition() {
     if (this.isJumping) {
+      this.sprite.setAttribute("class", "playerJump");
       this.countJump += 1;
       this.y -= this.jumpSpeed;
       if (this.countJump >= this.maxCount) {
@@ -61,6 +63,7 @@ class Player {
     if (collision) {
       player.isGrounded = true;
       player.isJumping = false;
+      this.sprite.setAttribute("class", "player");
     } else {
       player.isGrounded = false;
     }
