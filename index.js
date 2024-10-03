@@ -12,8 +12,10 @@ let gameInterval;
 let platformInterval;
 let i = 0;
 let coinsSpawnInterval;
+let increment = 1000;
 const deadSound = new Audio("./sounds/fall.wav");
 const levelSound = new Audio("./sounds/level.wav");
+let crazySpeed
 
 let checkCollisions;
 
@@ -25,7 +27,7 @@ function gameLoop() {
   insertFirstPlatform();
   insertSecondPlatform();
   newCoin();
-  platformInterval = setInterval(generateLevel, 1000);
+  speedIncrement();
   gameInterval = setInterval(updateGame, refreshRate);
 }
 
@@ -75,6 +77,7 @@ function endGame() {
   platforms = [];
   clearInterval(platformInterval);
   clearInterval(gameInterval);
+  Platforms.speed = 7
 }
 
 function generateLevel() {
@@ -84,17 +87,13 @@ function generateLevel() {
       levelConfig[i].height,
       levelConfig[i].x
     );
+    console.log("arr:", platform);
     platform.insert();
     platforms.push(platform);
     i++;
   } else {
-    i=0
-/*     platforms.forEach(function (plat) {
-      plat.speed += 1;
-      console.log("incrementar:", plat.speed);
-    });
-    generateLevel() */
-  }
+    i = 0;
+}
 }
 
 function insertFirstPlatform() {
@@ -168,6 +167,7 @@ const levelConfig = [
   { width: 200, height: 100 },
   { width: 180, height: 120 },
   { width: 160, height: 90 },
+  { width: 720, height: 110 },
   { width: 220, height: 110 },
   { width: 240, height: 80 },
   { width: 180, height: 130 },
@@ -178,3 +178,28 @@ const levelConfig = [
   { width: 200, height: 160 },
   { width: 500, height: 140, x: 1280, isLast: true },
 ];
+
+function speedIncrement() {
+  
+  
+  
+  
+  platformInterval = setInterval(generateLevel, increment);
+  
+  
+  
+setTimeout(function () {
+  if (crazySpeed) {
+    clearInterval(platformInterval);
+    increment -= 100;
+    Platforms.speed += 2;
+    speedIncrement();
+  }
+}, 10000);
+}
+
+
+
+stopIncrement(){
+crazySpeed = false
+}

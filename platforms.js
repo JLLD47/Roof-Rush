@@ -1,12 +1,12 @@
 // Creacion de la clase para las plataformas
 class Platforms {
+  static speed = 7
   constructor(width, height, x = 1280) {
     this.width = width;
     this.height = height;
     this.x = x;
     this.y = 600 - this.height;
     this.directionX = -1; //
-    this.speed = 7;
     this.sprite = document.createElement("div");
     this.interval = setInterval(this.move.bind(this), refreshRate);
   }
@@ -23,7 +23,7 @@ class Platforms {
     clearInterval(this.interval);
   }
   move() {
-    let newX = this.x + this.speed * this.directionX;
+    let newX = this.x + Platforms.speed * this.directionX;
     if (newX + this.width > 0) {
       this.x = newX;
       this.sprite.style.left = this.x + "px";
