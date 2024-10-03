@@ -15,8 +15,8 @@ let coinsSpawnInterval;
 let scoreInterval
 let increment = 1000;
 const deadSound = new Audio("./sounds/fall.wav");
-const levelSound = new Audio("./sounds/Blade - Vampire Dance Club Theme.mp3");
-const menuSound = new Audio(  "./sounds/menu.mp3"
+const levelSound = new Audio("./sounds/level.wav");
+const menuSound = new Audio(  "./sounds/menu.wav"
 );
 let crazySpeed = true;
 let stopPlease;
@@ -24,7 +24,6 @@ let checkCollisions;
 
 function gameLoop() {
   stopSound();
-  console.log("Game loop");
   crazySpeed = true;
   levelSound.loop = true;
   levelSound.play();
@@ -78,9 +77,7 @@ function endGame() {
 }
 
 function generateLevel() {
-  console.log("Generate Level");
   if (i < levelConfig.length) {
-    console.log("Creando Plataforma", i);
     platform = new Platforms(
       levelConfig[i].width,
       levelConfig[i].height,
