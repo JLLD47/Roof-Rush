@@ -14,13 +14,16 @@ let i = 0;
 let coinsSpawnInterval;
 let increment = 1000;
 const deadSound = new Audio("./sounds/fall.wav");
-const levelSound = new Audio("./sounds/level.wav");
-let crazySpeed
+const levelSound = new Audio("./sounds/Blade - Vampire Dance Club Theme.mp3");
+const menuSound = new Audio("./sounds/60s-flower-people-dutch-tulips-carpet-in-xxx-amsterdam-21252.mp3");
+let crazySpeed = true;
+let stopPlease;
 
 let checkCollisions;
-
 function gameLoop() {
-  i = 0;
+  stopSound();
+  console.log("Game loop");
+  crazySpeed = true;
   levelSound.loop = true;
   levelSound.play();
   newPlayer();
@@ -59,41 +62,32 @@ window.addEventListener("keyup", function (e) {
   }
 });
 
-let obstacle;
-
 function endGame() {
   playField.style.display = "none";
   restartView.classList.add("show");
   document.body.style.overflow = "hidden";
-  coinSound.currentTime = 0;
-  coinSound.pause();
-  levelSound.pause();
-  levelSound.currentTime = 0;
-  deadSound.play();
+  stopSound();
+  cleanAllIntervals();
+  cleanArrays();
   player.gameOver();
-  platforms.forEach(function (platform) {
-    platform.remove();
-  });
-  platforms = [];
-  clearInterval(platformInterval);
-  clearInterval(gameInterval);
-  Platforms.speed = 7
+  stopIncrement();
 }
 
 function generateLevel() {
+  console.log("Generate Level");
   if (i < levelConfig.length) {
+    console.log("Creando Plataforma", i);
     platform = new Platforms(
       levelConfig[i].width,
       levelConfig[i].height,
       levelConfig[i].x
     );
-    console.log("arr:", platform);
     platform.insert();
     platforms.push(platform);
     i++;
   } else {
     i = 0;
-}
+  }
 }
 
 function insertFirstPlatform() {
@@ -121,6 +115,7 @@ function newCoin() {
     if (random == 2) {
       altura = 300;
     }
+    // platforms = [];
     if (random == 3) {
       altura = 250;
     }
@@ -147,16 +142,12 @@ window.addEventListener("keydown", function (e) {
 });
 
 buttonRestart.addEventListener("click", function (event) {
-  clearInterval(coinsSpawnInterval);
-
-  if (coins.length) {
-    for (let index = 0; index < coins.length; index++) {
-      coins[index].remove();
-    }
-  }
-  coins = [];
-
+  stopSound();
+  cleanAllIntervals();
+  cleanArrays();
+  stopIncrement();
   gameLoop();
+  //window.location.reload();
   playField.style.display = "block";
 
   restartView.classList.remove("show");
@@ -176,30 +167,63 @@ const levelConfig = [
   { width: 280, height: 130 },
   { width: 180, height: 110 },
   { width: 200, height: 160 },
-  { width: 500, height: 140, x: 1280, isLast: true },
+  { width: 500, height: 140 },
 ];
 
 function speedIncrement() {
-  
-  
-  
-  
-  platformInterval = setInterval(generateLevel, increment);
-  
-  
-  
-setTimeout(function () {
+  console.log("Speed Increment");
+  console.log(crazySpeed);
+  generateLevel();
+  console.log("Plataformas", platforms);
   if (crazySpeed) {
-    clearInterval(platformInterval);
-    increment -= 100;
-    Platforms.speed += 2;
-    speedIncrement();
+    platformInterval = setInterval(generateLevel, increment);
+
+    stopPlease = setTimeout(function () {
+      clearInterval(platformInterval);
+      increment -= 100;
+      Platforms.speed += 1;
+      levelSound.playbackRate += 0.09;
+      speedIncrement();
+    }, 10000);
   }
-}, 10000);
+}
+
+function stopIncrement() {
+  crazySpeed = false;
+  Platforms.speed = 7;
+  increment = 1000;
+  clearTimeout(stopPlease);
+  i = 0;
+}
+
+function cleanAllIntervals() {
+  clearInterval(coinsSpawnInterval);
+  clearInterval(platformInterval);
+  clearInterval(gameInterval);
+}
+
+function cleanArrays() {
+  if (coins.length) {
+    for (let index = 0; index < coins.length; index++) {
+      coins[index].remove();
+    }
+  }
+  coins = [];
+
+  platforms.forEach(function (platform) {
+    platform.remove();
+  });
+  platforms = [];
+}
+
+function stopSound() {
+  coinSound.currentTime = 0;
+  coinSound.pause();
+  levelSound.pause();
+  levelSound.currentTime = 0;
+  deadSound.play();
+  menuSound.pause();
 }
 
 
-
-stopIncrement(){
-crazySpeed = false
-}
+menuSound.play();
