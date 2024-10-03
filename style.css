@@ -6,6 +6,7 @@ body {
     overflow: hidden;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-family: 'Tiny5', sans-serif;
 
 }
@@ -184,6 +185,46 @@ body {
     100% {
         background-position: -1280px 0;
     }
+}
+
+#start{
+    width: 1280px;
+    height: 600px;
+    /* background-color: rgb(156, 155, 155); */
+    background-image: url(Start.webp);
+    background-size: cover;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+#btn-start:hover{  
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
+@keyframes anim{
+    0% {color: #ff0;} /*Amarillo*/
+   25% {color: #f80;} /*Naranja*/
+   50% {color: #fff;} /*Blanco*/
+   75% {color: #f80;} /*Otra vez naranja*/
+  100% {color: #ff0;} /*Otra vez amarillo*/
+}
+
+#restart h3 {
+    animation-name: anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+#playfield h1{
+    margin-left: 50px;
+}
+#playfield span{
+    animation-name: anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
 }
 
 #start {
