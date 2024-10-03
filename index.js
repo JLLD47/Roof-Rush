@@ -19,7 +19,7 @@ let checkCollisions;
 
 function gameLoop() {
   i = 0;
-  levelSound.loop = true
+  levelSound.loop = true;
   levelSound.play();
   newPlayer();
   insertFirstPlatform();
@@ -38,18 +38,11 @@ function updateGame() {
   if (player.y + player.height >= 600) {
     endGame();
   } else {
-    console.log(player.score);
     player.updatePosition();
     player.checkCollision();
     scoreUpdate();
   }
 }
-
-window.addEventListener("keydown", function (e) {
-  if (e.key === " ") {
-    player.jump();
-  }
-});
 
 function scoreUpdate() {
   let score = document.getElementById("score");
@@ -71,7 +64,7 @@ function endGame() {
   restartView.classList.add("show");
   document.body.style.overflow = "hidden";
   coinSound.currentTime = 0;
-  coinSound.pause()
+  coinSound.pause();
   levelSound.pause();
   levelSound.currentTime = 0;
   deadSound.play();
@@ -80,21 +73,28 @@ function endGame() {
     platform.remove();
   });
   platforms = [];
-  console.log(levelConfig);
   clearInterval(platformInterval);
   clearInterval(gameInterval);
 }
 
 function generateLevel() {
-  platform = new Platforms(
-    levelConfig[i].width,
-    levelConfig[i].height,
-    levelConfig[i].x
-  );
-  console.log("insrrt", levelConfig[i]);
-  platform.insert();
-  platforms.push(platform);
-  i++;
+  if (i < levelConfig.length) {
+    platform = new Platforms(
+      levelConfig[i].width,
+      levelConfig[i].height,
+      levelConfig[i].x
+    );
+    platform.insert();
+    platforms.push(platform);
+    i++;
+  } else {
+    i=0
+/*     platforms.forEach(function (plat) {
+      plat.speed += 1;
+      console.log("incrementar:", plat.speed);
+    });
+    generateLevel() */
+  }
 }
 
 function insertFirstPlatform() {
@@ -108,82 +108,6 @@ function insertSecondPlatform() {
   secondPlat.insert();
   platforms.push(secondPlat);
 }
-
-const levelConfig = [
-  { width: 200, height: 100 },
-  { width: 180, height: 120 },
-  { width: 160, height: 90 },
-  { width: 220, height: 110 },
-  { width: 240, height: 80 },
-  { width: 180, height: 130 },
-  { width: 160, height: 150 },
-  { width: 150, height: 170 },
-  { width: 200, height: 130 },
-  { width: 180, height: 110 },
-  { width: 220, height: 160 },
-  { width: 160, height: 140 },
-  { width: 190, height: 150 },
-  { width: 210, height: 130 },
-  { width: 200, height: 120 },
-  { width: 160, height: 140 },
-  { width: 190, height: 160 },
-  { width: 180, height: 100 },
-  { width: 220, height: 110 },
-  { width: 200, height: 150 },
-  { width: 230, height: 170 },
-  { width: 250, height: 130 },
-  { width: 180, height: 140 },
-  { width: 190, height: 120 },
-  { width: 200, height: 160 },
-  { width: 150, height: 140 },
-  { width: 170, height: 150 },
-  { width: 210, height: 130 },
-  { width: 180, height: 110 },
-  { width: 230, height: 170 },
-  { width: 220, height: 100 },
-  { width: 210, height: 120 },
-  { width: 240, height: 90 },
-  { width: 200, height: 110 },
-  { width: 160, height: 80 },
-  { width: 230, height: 130 },
-  { width: 220, height: 100 },
-  { width: 250, height: 160 },
-  { width: 180, height: 140 },
-  { width: 190, height: 150 },
-  { width: 210, height: 130 },
-  { width: 220, height: 120 },
-  { width: 170, height: 140 },
-  { width: 190, height: 160 },
-  { width: 230, height: 100 },
-  { width: 250, height: 110 },
-  { width: 210, height: 150 },
-  { width: 180, height: 170 },
-  { width: 200, height: 130 },
-];
-
-function insertSecondPlatform() {
-  let secondPlat = new Platforms(150, 50);
-  secondPlat.insert();
-  platforms.push(secondPlat);
-}
-
-buttonRestart.addEventListener("click", function (event) {
-  clearInterval(coinsSpawnInterval);
-
-  if (coins.length) {
-    for (let index = 0; index < coins.length; index++) {
-      console.log(coins);
-      coins[index].remove();
-    }
-  }
-  coins = [];
-
-  gameLoop();
-  playField.style.display = "block";
-
-  restartView.classList.remove("show");
-  document.body.style.overflow = "auto";
-});
 
 function newCoin() {
   coinsSpawnInterval = setInterval(function () {
@@ -211,12 +135,46 @@ function newCoin() {
   }, 500);
 }
 
-//let coinsSpawnInterval = gameLoop
-
-//coinsSpawnInterval()
-
 buttonStart.addEventListener("click", function (event) {
   gameLoop();
   playField.style.display = "block";
   startView.style.display = "none";
 });
+
+window.addEventListener("keydown", function (e) {
+  if (e.key === " ") {
+    player.jump();
+  }
+});
+
+buttonRestart.addEventListener("click", function (event) {
+  clearInterval(coinsSpawnInterval);
+
+  if (coins.length) {
+    for (let index = 0; index < coins.length; index++) {
+      coins[index].remove();
+    }
+  }
+  coins = [];
+
+  gameLoop();
+  playField.style.display = "block";
+
+  restartView.classList.remove("show");
+  document.body.style.overflow = "auto";
+});
+
+const levelConfig = [
+  { width: 200, height: 100 },
+  { width: 180, height: 120 },
+  { width: 160, height: 90 },
+  { width: 220, height: 110 },
+  { width: 240, height: 80 },
+  { width: 180, height: 130 },
+  { width: 160, height: 150 },
+  { width: 150, height: 170 },
+  { width: 280, height: 130 },
+  { width: 180, height: 110 },
+  { width: 200, height: 160 },
+  { width: 500, height: 140, x: 1280, isLast: true },
+];

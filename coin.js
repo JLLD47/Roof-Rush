@@ -46,7 +46,6 @@ class Coin {
         coin.remove();
         coins.splice(index, 1);
         player.score += 50;
-        console.log(player);
       }
     });
   }
