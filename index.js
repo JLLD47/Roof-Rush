@@ -73,6 +73,7 @@ function endGame() {
   cleanAllIntervals();
   cleanArrays();
   player.gameOver();
+  deadSound.play()
   stopIncrement();
 }
 
@@ -218,7 +219,6 @@ function stopSound() {
   coinSound.pause();
   levelSound.pause();
   levelSound.currentTime = 0;
-  deadSound.play();
   menuSound.pause();
   levelSound.playbackRate = 1
 }

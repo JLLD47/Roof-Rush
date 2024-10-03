@@ -151,7 +151,7 @@ body {
     width: 1280px;
     height: 550px;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 50px;
 
     position: absolute;
     background-image: url(./animations/NightCity/3.png);
@@ -244,4 +244,15 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
     transform: scale(1.1);
+}
+
+#score{
+    position:absolute;
+    z-index: 11;
+}
+
+#scoreLetters{
+    position:absolute;
+    z-index: 11;
+
 }
