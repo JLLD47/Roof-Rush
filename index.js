@@ -137,12 +137,20 @@ buttonStart.addEventListener("click", function (event) {
 });
 
 window.addEventListener("keydown", function (e) {
-  if (e.key === " ") {
+  if (e.key === " " && !restartView.classList.contains("show")) {
     player.jump();
+  }
+  if (e.key === " " && restartView.classList.contains("show")){
+    restart()
   }
 });
 
 buttonRestart.addEventListener("click", function (event) {
+restart()
+});
+
+
+function restart(){
   stopSound();
   cleanAllIntervals();
   cleanArrays();
@@ -152,7 +160,8 @@ buttonRestart.addEventListener("click", function (event) {
 
   restartView.classList.remove("show");
   document.body.style.overflow = "auto";
-});
+}
+
 
 const levelConfig = [
   { width: 200, height: 100 },
