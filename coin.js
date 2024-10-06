@@ -1,6 +1,3 @@
-const coinSound = new Audio("./sounds/coin.wav");
-coinSound.volume = 0.3;
-
 class Coin {
   constructor(x, y) {
     this.height = 16;

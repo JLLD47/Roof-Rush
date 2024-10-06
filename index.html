@@ -20,6 +20,7 @@
         <div id="bg1"></div>
         <h1 id="scoreLetters">Score<span id="score">0</span></h1>
         <br>
+        <br>
         <h1 id="distanceLetters">Distance<span id="distance">0</span></h1>
         <div id="bg2"></div>
         <div id="bg3"></div>
@@ -30,14 +31,26 @@
     <div id="start">
       <div id="content">
           <h1><span>ROOFTOP</span> RUSH</h1>
-          <div id="btn-start"><p>Start Game</p></div> 
+          <div id="btn-start" class="btn-menu"><p>Start Game</p></div>
+          <div id="btn-options" class="btn-menu">Options</div>
       </div>
+  </div>
+
+  <div id="options">
+    <div id="content-options">
+      <h1>OPTIONS</h1>
+      <h2 id="close-options" class="close-x">X</h2>
+      <div id="sound-control">
+        <label for="volume">Volume: </label>
+        <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+      </div>
+    </div>
   </div>
 
 
   <div id="podium">
     <div id="content-podium">
-      <h2 id="close-podium">X</h2>
+      <h2 id="close-podium" class="close-x">X</h2>
       <h1>HALL OF FAME</h1>
       <h2>TOP 8 Players</h2>
       <div class="top-heroes">JAIME <span>3840</span></div>
