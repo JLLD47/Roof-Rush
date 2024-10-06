@@ -1,8 +1,3 @@
-let playField = document.getElementById("playfield");
-let restartView = document.getElementById("restart");
-let buttonRestart = document.getElementById("btn-restart");
-let buttonStart = document.getElementById("btn-start");
-let startView = document.getElementById("start");
 let player;
 let platform;
 let platforms = [];
@@ -12,24 +7,21 @@ let gameInterval;
 let platformInterval;
 let i = 0;
 let coinsSpawnInterval;
-let scoreInterval
+let scoreInterval;
+let distanceScore = 0
 let increment = 1000;
-const deadSound = new Audio("./sounds/fall.wav");
-const levelSound = new Audio("./sounds/Blade - Vampire Dance Club Theme.mp3");
-const menuSound = new Audio(  "./sounds/menu.mp3"
-);
 let crazySpeed = true;
 let stopPlease;
 let checkCollisions;
 
 function gameLoop() {
+  distanceScore = 0
   stopSound();
-  console.log("Game loop");
   crazySpeed = true;
   levelSound.loop = true;
   levelSound.play();
   newPlayer();
-  
+
   insertFirstPlatform();
   insertSecondPlatform();
   newCoin();
@@ -50,6 +42,7 @@ function updateGame() {
     player.updatePosition();
     player.checkCollision();
     scoreUpdate();
+    distance()
   }
 }
 
@@ -58,6 +51,11 @@ function scoreUpdate() {
   score.innerText = player.score;
   let endScore = document.getElementById("endScore");
   endScore.innerText = player.score;
+}
+
+function distance(){
+  let distance = document.getElementById("distance")
+  distance.innerText = distanceScore
 }
 
 window.addEventListener("keyup", function (e) {
@@ -74,13 +72,12 @@ function endGame() {
   cleanAllIntervals();
   cleanArrays();
   player.gameOver();
+  deadSound.play();
   stopIncrement();
 }
 
 function generateLevel() {
-  console.log("Generate Level");
   if (i < levelConfig.length) {
-    console.log("Creando Plataforma", i);
     platform = new Platforms(
       levelConfig[i].width,
       levelConfig[i].height,
@@ -132,19 +129,7 @@ function newCoin() {
   }, 500);
 }
 
-buttonStart.addEventListener("click", function (event) {
-  gameLoop();
-  playField.style.display = "block";
-  startView.style.display = "none";
-});
-
-window.addEventListener("keydown", function (e) {
-  if (e.key === " ") {
-    player.jump();
-  }
-});
-
-buttonRestart.addEventListener("click", function (event) {
+function restart() {
   stopSound();
   cleanAllIntervals();
   cleanArrays();
@@ -154,7 +139,7 @@ buttonRestart.addEventListener("click", function (event) {
 
   restartView.classList.remove("show");
   document.body.style.overflow = "auto";
-});
+}
 
 const levelConfig = [
   { width: 200, height: 100 },
@@ -221,14 +206,13 @@ function stopSound() {
   coinSound.pause();
   levelSound.pause();
   levelSound.currentTime = 0;
-  deadSound.play();
   menuSound.pause();
-  levelSound.playbackRate = 1
+  levelSound.playbackRate = 1;
 }
 
-
-function sumScore () {
-player.score += 20;
+function sumScore() {
+  player.score += 20;
+  distanceScore += 20
+  
 }
 
-menuSound.play();

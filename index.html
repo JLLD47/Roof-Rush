@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rooftop Rush</title>
+    <script src="menus.js" defer></script>
     <script src="coin.js" defer></script>
     <script src="obstacle.js" defer></script>
     <script src="player.js" defer></script>
@@ -17,7 +18,9 @@
 <body>
     <div id="playfield">
         <div id="bg1"></div>
-        <h1>Score <span id="score">0</span></h1>
+        <h1 id="scoreLetters">Score<span id="score">0</span></h1>
+        <br>
+        <h1 id="distanceLetters">Distance<span id="distance">0</span></h1>
         <div id="bg2"></div>
         <div id="bg3"></div>
         
@@ -31,11 +34,29 @@
       </div>
   </div>
 
+
+  <div id="podium">
+    <div id="content-podium">
+      <h2 id="close-podium">X</h2>
+      <h1>HALL OF FAME</h1>
+      <h2>TOP 8 Players</h2>
+      <div class="top-heroes">JAIME <span>3840</span></div>
+      <div class="top-heroes">JAIME <span>3220</span></div>
+      <div class="top-heroes">JAIME <span>3140</span></div>
+      <div class="top-heroes">JAIME <span>3020</span></div>
+      <div class="top-heroes">JAIME <span>3000</span></div>
+      <div class="top-heroes">JAIME <span>2860</span></div>
+      <div class="top-heroes">JAIME <span>2840</span></div>
+      <div class="top-heroes">EUGENIO <span>880</span></div>
+    </div>
+  </div>
+
     <div id="restart">
         <div id="content">
         <h1><span>GAME</span> OVER</h1>
         <h3>Score</h3>
         <p id="endScore">0</p>
+        <div id="btn-podium"><p>Hall of Fame</p></div> 
         <div id="btn-restart"><p>Restart Game</p></div> 
     </div>
     </div>

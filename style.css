@@ -24,6 +24,184 @@ body {
 
 }
 
+/* Menus */
+
+#restart {
+    width: 1280px;
+    height: 600px;
+    background-image: url(fondorandom.webp);
+    background-size: cover;
+    position: fixed;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: opacity 3s ease visibility 0s 1s;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+#restart.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 3s ease;
+    pointer-events: auto;
+}
+
+#content {
+    width: 450px;
+    height: 595px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.541);
+    border: 5px solid green;
+
+}
+
+#btn-restart:hover {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
+
+#btn-podium:hover {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
+
+#content span {
+    color: brown;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: black;
+}
+
+#start {
+    width: 1280px;
+    height: 600px;
+    background-image: url(Start.webp);
+    background-size: cover;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+#btn-start:hover {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
+
+#restart h3 {
+    animation-name: anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#playfield h1 {
+    margin-left: 50px;
+}
+
+#playfield span {
+    animation-name: anim;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+#start {
+    width: 1280px;
+    height: 600px;
+    background-image: url("./animations/Start.webp");
+    background-size: cover;
+    position: fixed;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+}
+
+#btn-start:hover {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    transform: scale(1.1);
+}
+
+#btn-restart {
+    cursor: pointer;
+}
+
+
+#podium {
+    background-color: black;
+    position: fixed;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: opacity 3s ease visibility 0s 1s;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+#content-podium {
+    width: 550px;
+    height: 595px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.541);
+    border: 5px solid green;
+    position: relative;
+
+}
+
+#close-podium {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 35px;
+    color: white;
+}
+
+#close-podium:hover {
+    transform: scale(1.2);
+    color: red;
+}
+
+.top-heroes span {
+    color: rgb(255, 0, 0);
+    margin-left: 25px;
+}
+
+
+#podium.show {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 3s ease;
+    pointer-events: auto;
+}
+
+.top-heroes {
+    color: white;
+}
+
+/* Ingame assets */
+
 .player {
     background-image: url(./animations/Biker_run.png);
     position: absolute;
@@ -59,78 +237,30 @@ body {
     animation: coinsspin 1s steps(5) infinite;
 }
 
-
-@keyframes idle {
-    100% {
-        background-position: 288px 0;
-    }
+#score {
+    position: absolute;
+    z-index: 11;
+    margin-left: 10px;
 }
 
-@keyframes coinsspin {
-    100% {
-        background-position: 80px 0;
-    }
-}
+#scoreLetters {
+    position: absolute;
+    z-index: 11;
 
-
-
-
-
-
-#restart {
-    width: 1280px;
-    height: 600px;
-    /* background-color: rgb(156, 155, 155); */
-    background-image: url(fondorandom.webp);
-    background-size: cover;
-    position: fixed;
-    text-align: center;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    transition: opacity 3s ease visibility 0s 1s;
-    pointer-events: none;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-}
-
-#btn-restart {
-    cursor: pointer;
-    padding: 15px;
-}
-
-#restart.show {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 3s ease;
-    pointer-events: auto;
-}
-
-#content {
-    width: 400px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    color: white;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.541);
-    border: 5px solid green;
 
 }
 
-#btn-restart:hover {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transform: scale(1.1);
+#distanceLetters {
+    position: absolute;
+    z-index: 11;
+    margin-left: 10px;
+
 }
 
-#content span {
-    color: brown;
-    -webkit-text-stroke-width: 3px;
-    -webkit-text-stroke-color: black;
+#distance {
+    position: absolute;
+    z-index: 11;
+    margin-left: 10px;
 }
 
 #bg1 {
@@ -151,7 +281,7 @@ body {
     width: 1280px;
     height: 550px;
     margin: 0 auto;
-    margin-top: 15px;
+    margin-top: 50px;
 
     position: absolute;
     background-image: url(./animations/NightCity/3.png);
@@ -175,7 +305,19 @@ body {
 
 }
 
+/*Animations*/
 
+@keyframes idle {
+    100% {
+        background-position: 288px 0;
+    }
+}
+
+@keyframes coinsspin {
+    100% {
+        background-position: 80px 0;
+    }
+}
 
 @keyframes scrollBG1 {
     0% {
@@ -187,61 +329,24 @@ body {
     }
 }
 
-#start{
-    width: 1280px;
-    height: 600px;
-    /* background-color: rgb(156, 155, 155); */
-    background-image: url(Start.webp);
-    background-size: cover;
-    position: fixed;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-}
-#btn-start:hover{  
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transform: scale(1.1);
-}
-@keyframes anim{
-    0% {color: #ff0;} /*Amarillo*/
-   25% {color: #f80;} /*Naranja*/
-   50% {color: #fff;} /*Blanco*/
-   75% {color: #f80;} /*Otra vez naranja*/
-  100% {color: #ff0;} /*Otra vez amarillo*/
-}
+@keyframes anim {
+    0% {
+        color: #ff0;
+    }
 
-#restart h3 {
-    animation-name: anim;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-  }
-#playfield h1{
-    margin-left: 50px;
-}
-#playfield span{
-    animation-name: anim;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
+    25% {
+        color: #f80;
+    }
 
-#start {
-    width: 1280px;
-    height: 600px;
-    background-image: url("./animations/Start.webp");
-    background-size: cover;
-    position: fixed;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 35px;
-}
+    50% {
+        color: #fff;
+    }
 
-#btn-start:hover {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    transform: scale(1.1);
+    75% {
+        color: #f80;
+    }
+
+    100% {
+        color: #ff0;
+    }
 }

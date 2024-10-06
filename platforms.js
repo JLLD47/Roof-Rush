@@ -1,6 +1,5 @@
-// Creacion de la clase para las plataformas
 class Platforms {
-  static speed = 7
+  static speed = 7;
   constructor(width, height, x = 1280) {
     this.width = width;
     this.height = height;
@@ -24,6 +23,7 @@ class Platforms {
   }
   move() {
     let newX = this.x + Platforms.speed * this.directionX;
+
     if (newX + this.width > 0) {
       this.x = newX;
       this.sprite.style.left = this.x + "px";
