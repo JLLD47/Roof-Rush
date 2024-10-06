@@ -17,14 +17,14 @@ let closePodium = document.getElementById("close-podium");
 let controlVolume = document.getElementById("volume")
 
 const deadSound = new Audio("./sounds/fall.wav");
-const levelSound = new Audio("./sounds/level.wav");
+const levelSound = new Audio("./sounds/levelvania.wav");
 const menuSound = new Audio("./sounds/menu.wav");
 const coinSound = new Audio("./sounds/coin.wav");
 
-deadSound.volume = 0.6
-levelSound.volume = 0.6
-menuSound.volume = 0.6
-coinSound.volume = 0.3;
+deadSound.volume = 0.2
+levelSound.volume = 0.2
+menuSound.volume = 0.2
+coinSound.volume = 0.2;
 
 
 buttonStart.addEventListener("click", function (event) {
