@@ -8,20 +8,19 @@ let platformInterval;
 let i = 0;
 let coinsSpawnInterval;
 let scoreInterval;
-let distanceScore = 0
+let distanceScore = 0;
 let increment = 1000;
 let crazySpeed = true;
 let stopPlease;
 let checkCollisions;
 
 function gameLoop() {
-  distanceScore = 0
+  distanceScore = 0;
   stopSound();
   crazySpeed = true;
   levelSound.loop = true;
   levelSound.play();
   newPlayer();
-
   insertFirstPlatform();
   insertSecondPlatform();
   newCoin();
@@ -42,7 +41,9 @@ function updateGame() {
     player.updatePosition();
     player.checkCollision();
     scoreUpdate();
-    distance()
+    fallingPlatforms();
+
+    distance();
   }
 }
 
@@ -53,9 +54,9 @@ function scoreUpdate() {
   endScore.innerText = player.score;
 }
 
-function distance(){
-  let distance = document.getElementById("distance")
-  distance.innerText = distanceScore
+function distance() {
+  let distance = document.getElementById("distance");
+  distance.innerText = distanceScore;
 }
 
 window.addEventListener("keyup", function (e) {
@@ -77,15 +78,21 @@ function endGame() {
 }
 
 function generateLevel() {
+  // platform i.x es menor +200px que  + platform i-1.x + platform i-1.width
+
   if (i < levelConfig.length) {
-    platform = new Platforms(
-      levelConfig[i].width,
-      levelConfig[i].height,
-      levelConfig[i].x
-    );
-    platform.insert();
-    platforms.push(platform);
-    i++;
+    let lastPlatform = platforms[platforms.length-1];
+    if (lastPlatform.x + lastPlatform.width + 70 < 1280) {
+      platform = new Platforms(
+        levelConfig[i].width,
+        levelConfig[i].height,
+        levelConfig[i].x,
+        levelConfig[i].crumb
+      );
+      platform.insert();
+      platforms.push(platform);
+      i++;
+    }
   } else {
     i = 0;
   }
@@ -98,7 +105,7 @@ function insertFirstPlatform() {
 }
 
 function insertSecondPlatform() {
-  let secondPlat = new Platforms(150, 50);
+  let secondPlat = new Platforms(300, 50);
   secondPlat.insert();
   platforms.push(secondPlat);
 }
@@ -144,15 +151,15 @@ function restart() {
 const levelConfig = [
   { width: 200, height: 100 },
   { width: 180, height: 120 },
-  { width: 160, height: 90 },
-  { width: 720, height: 110 },
-  { width: 220, height: 110 },
-  { width: 240, height: 80 },
-  { width: 180, height: 130 },
   { width: 160, height: 150 },
-  { width: 150, height: 170 },
+  { width: 720, height: 110, x: 1280, crumb: true },
+  { width: 220, height: 110 },
+  { width: 240, height: 150 },
+  { width: 180, height: 120 },
+  { width: 550, height: 200, x: 1200, crumb: true },
+  { width: 150, height: 130 },
   { width: 280, height: 130 },
-  { width: 180, height: 110 },
+  { width: 180, height: 100 },
   { width: 200, height: 160 },
   { width: 500, height: 140 },
 ];
@@ -212,7 +219,13 @@ function stopSound() {
 
 function sumScore() {
   player.score += 20;
-  distanceScore += 20
-  
+  distanceScore += 20;
 }
 
+function fallingPlatforms() {
+  platforms.forEach(function (platform) {
+    if (platform.crumb === true && platform.x <= 640) {
+      platform.crumble();
+    }
+  });
+}
