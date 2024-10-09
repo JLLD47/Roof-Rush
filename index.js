@@ -156,7 +156,7 @@ const levelConfig = [
   { width: 220, height: 110 },
   { width: 240, height: 150 },
   { width: 180, height: 120 },
-  { width: 550, height: 200, x: 1200, crumb: true },
+  { width: 550, height: 200, x: 1280, crumb: true },
   { width: 150, height: 130 },
   { width: 280, height: 130 },
   { width: 180, height: 100 },
